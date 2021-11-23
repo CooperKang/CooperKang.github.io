@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>TPAP</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style type="text/css">
+/* reset & 공통 css */
+*{padding:0;margin:0;outline:0;}
+li{list-style:none;}
+a{color:#333;}
+a:link, a:visited{color:#333;}
+.bc_blue{background-color:#1559A8;}
+#contents h3.section_title{width:calc(100% - 40px);margin:20px 20px 5px 20px;border-bottom:1px solid #000;padding-bottom:9px;}
+#contents section div.section_table{width:calc(100% - 36px);margin:0 16px 0 20px;}
+.scroll_area::-webkit-scrollbar {
+  width: 4px;
+}
+.scroll_area::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #2C333C;
+}
+.scroll_area::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #C4C4C4;
+}
+/* TPAP css(wrapper) */
+#TPAP{width:1920px;height:100vh;position:relative;}
+  #menu{width:58px;height:100%;position:absolute;top:0;left:0;z-index:99;}
+  #main{width:calc(1920px - 58px);height:100%;float:right;}
+#TPAP:after{content:"";display:block;clear:both;}
+
+/* menu css */
+#menu{box-shadow:0px 5px 30px 0 rgba(0,0,0,0.1);}
+  #menu_btn{width:100%;height:66.5px;text-align:center;padding-top:33.5px;box-shadow:0px 5px 30px 0 rgba(0,0,0,0.1);}
+  #nav{width:100%;padding-top:60px;}
+    #nav li{width:100%;height:40px;margin-top:20px;position:relative;text-align:center;}
+      #nav li a img{padding-top:5px;}
+      #nav li .choose_line{display:block;width:6px;height:100%;position:absolute;top:0;left:0;z-index:100;transition:0.2s all;}
+      #nav li:hover .choose_line{background-color:#1559A8;}
+
+/* main css */
+#main{overflow:hidden;}
+
+  /* header css */
+  #header{width:100%;height:100px;box-shadow:0px 2px 30px 0 rgba(0,0,0,0.08);}
+    #header ul{width:100%;height:100%;}
+      #header ul li{height:100%;float:left;}
+      #header ul li:first-child{width:1463px;border-right:2px solid #B2B1B1;}
+        #header ul li:first-child h2{padding:0 10px;font-size:24px;height:100px;line-height:100px;}
+        #header .platform_name{float:left;}
+        #header .company_name{float:right;}
+          #header .platform_name span{font-weight:400;}
+      #header ul li:nth-child(2){width:100px;text-align:center;}
+          #header ul li:nth-child(2) img{padding-top:30px;}
+      #header ul li:nth-child(3){width:calc(100% - 1565px);}
+
+  /* container css */
+  #container{width:calc(100% - 40px);height:calc(100% - 140px);padding:20px;}
+    #container .sub_profile{width:300px;height:80px;border-radius:10px;box-shadow:0px -2px 40px 0 rgba(0,0,0,0.1);}
+
+    #contents{width:calc(100% - 40px);height:calc(100% - 140px);padding:20px;background-color:#F4F4F4;margin:20px 0;overflow:hidden;}
+      #contents section{float:left;padding-right:20px;border-radius:10px;}
+      section > div{border-radius:10px;overflow:hidden;box-shadow:0px 4px 8px 0 rgba(0,0,0,0.24);margin-bottom:20px;background-color:#fff;}
+        section > div > img{display:block;width:100%;height:100%;}
+      #contents section.section1{width:280px;height:544px;}
+
+      #contents section.section2{width:700px;}
+        #contents section.section2 #calender{width:100%;height:300px;}
+        #contents section.section2 #group_issue{width:100%;height:224px;}
+          #group_issue .issue_table{overflow:auto;height:149px;}
+            #group_issue .issue_table ul{width:100%;height:24px;line-height:24px;padding-top:6px;overflow:hidden;}
+              #group_issue .issue_table ul li{height:100%;float:left;}
+              #group_issue .issue_table ul li:nth-child(1){width:3%;}
+                .circle{display:block;width:10px;height:10px;margin-top:7px;border-radius:5px;background-color:grey;}
+              #group_issue .issue_table ul li:nth-child(2){width:20%;font-weight:bold;}
+              #group_issue .issue_table ul li:nth-child(3){width:25%;}
+              #group_issue .issue_table ul li:nth-child(4){width:25%;}
+              #group_issue .issue_table ul li:nth-child(5){width:18%;}
+              #group_issue .issue_table ul li:nth-child(6){width:4%;}
+              #group_issue .issue_table ul li:nth-child(7){width:5%;}
+                #group_issue .issue_table ul li img{height:100%;cursor:pointer;}
+            #group_issue .issue_table ul:after{content:"";display:block;clear:both;}
+
+      #contents section.section3{width:240px;}
+        #contents section.section3 #insert_schedule{height:120px;}
+        #contents section.section3 #board_notice{height:160px;}
+        #contents section.section3 #request_content{height:224px;}
+
+      #contents section.section4{width:440px;height:720px;}
+        #check_progress{width:100%;height:100%;}
+          #check_progress .table_column{width:calc(100% - 4px);height:56px;background-color:#f5f5f5;font-weight:bold;font-size:18px;border-bottom:2px solid #c4c4c4;}
+            #check_progress .table_column li{float:left;height:100%;line-height:56px;text-align:center;}
+            #check_progress .table_column li:nth-child(1){width:calc(48% - 1px);border-right:1px solid #C4C4C4;text-align:left;text-indent:10px;}
+            #check_progress .table_column li:nth-child(2){width:calc(28% - 1px);border-right:1px solid #C4C4C4;}
+            #check_progress .table_column li:nth-child(3){width:24%;}
+
+          #check_progress .progress_table{height: 570px;overflow: auto;}
+            #check_progress .table_data{width:100%;background-color:#fff;font-weight:normal;font-size:14px;border-bottom:1px solid #c4c4c4;}
+              #check_progress .table_data img{padding-top:12px;}
+              #check_progress .table_data li:nth-child(2) .data_status{background-color:#6B83D9;color:#fff;padding:4px;border-radius:4px;}
+              #check_progress .table_data li:last-child p{width:100%;height:100%;position:relative;}
+                #check_progress .table_data li p .issue_count{position:absolute;right:22px;bottom:-5px;}
+    #contents:after{content:"";display:block;clear:both;}
+</style>
+<script type="text/javascript">
+$(function(){
+  /*$("#nav li a").mouseover(function(){
+    $(this).siblings(".choose_line").addClass("bc_blue");
+  });
+  $("#nav li a").mouseout(function(){
+    $(".choose_line").not(".choose_line:eq(0)").removeClass("bc_blue");
+  });*/
+  alert("해당 페이지는 전체화면(F11)에 최적화되어 있습니다.");
+  var for_box = '<ul>'+
+                  '<li><span class="circle"></span></li>'+
+                  '<li>업체&nbsp;A</li>'+
+                  '<li>차량 취득 발생</li>'+
+                  '<li>차량 취득 발생</li>'+
+                  '<li>2020.03.24</li>'+
+                  '<li><img src="./img/update.png" alt="수정"></li>'+
+                  '<li><img src="./img/delete.png" alt="삭제"></li>'+
+                '</ul>';
+  for(i=0;i<10;i++){
+    $(".issue_table").append(for_box);
+  }
+  var for_box2 = '<ul class="table_data table_column">'+
+                  '<li><a href="">업체A</a></li>'+
+                  '<li><span class="data_status">거래 정보 수집<span></li>'+
+                  '<li><p><img src="./img/issue.png" alt="이슈 알람"><span class="issue_count">2</span></p></li>'+
+                '</ul>';
+  for(a=0;a<20;a++){
+    $("#check_progress .scroll_area").append(for_box2);
+  }
+});
+</script>
+</head>
+<body>
+<div id="TPAP">
+  <div id="menu">
+    <div id="menu_btn">
+      <img src="./img/menuBtn.png" alt="목록">
+    </div>
+    <ul id="nav">
+      <li><span class="choose_line bc_blue"></span><a href="./dashboard.html"><img src="img/home_on.png" alt="홈"></a></li>
+      <li><span class="choose_line"></span><a href="#"><img src="./img/inbox.png" alt="대쉬보드"></a></li>
+      <li><span class="choose_line"></span><a href="#"><img src="./img/outline.png" alt="outlook"></a></li>
+      <li><span class="choose_line"></span><a href="#"><img src="./img/setting.png" alt="설정"></a></li>
+      <li><span class="choose_line"></span><a href="#"><img src="./img/help.png" alt="도움"></a></li>
+    </ul>
+  </div>
+  <div id="main">
+    <div id="header">
+      <ul>
+        <li>
+          <h2 class="platform_name">TPAP <span>세무자동화 플랫폼</span></h2>
+          <h2 class="company_name">세무법인동안</h2>
+        </li>
+        <li>
+          <img src="./img/alarm.png" alt="알람">
+        </li>
+        <li class="sub_profile">
+          <img src="./img/join.png" alt="join">
+        </li>
+      </ul>
+    </div>
+    <div id="container">
+      <div class="sub_profile">
+        <img src="./img/userDashboard.png" alt="대시보드">
+      </div>
+      <div id="contents">
+        <section class="section1">
+          <div id="group_messenger">
+            <!--<h3 class="section_title">메신저 모음</h3>-->
+            <img src="./img/messenger.png" alt="메신저 모음">
+          </div>
+        </section>
+        <section class="section2">
+          <div id="calender">
+            <img src="./img/calender.png" alt="달력">
+          </div>
+          <div id="group_issue">
+            <h3 class="section_title">거래처 이슈 모음</h3>
+            <div class="issue_table section_table scroll_area">
+              <!--반복문-->
+              <!--반복문-->
+            </div>
+          </div>
+        </section>
+        <section class="section3">
+          <div id="insert_schedule">
+            <!--<h3 class="section_title">빠른 스케줄 등록</h3>-->
+            <img src="./img/schedule.png" alt="빠른 스케줄 등록">
+          </div>
+          <div id="board_notice">
+            <!--<h3 class="section_title">세무법인 동안 공지사항</h3>-->
+            <img src="./img/notice.png" alt="세무법인 동안 공지사">
+          </div>
+          <div id="request_content">
+            <!--<h3 class="section_title">요청사항 내용</h3>-->
+            <img src="./img/request.png" alt="요청사항 내용">
+          </div>
+        </section>
+        <section class="section4">
+          <div id="check_progress">
+            <h3 class="section_title">부가가치세 신고 진행 상황</h3>
+            <div class="section_table">
+              <ul class="table_column">
+                <li>업체명</li>
+                <li>진행단계</li>
+                <li>이슈</li>
+              </ul>
+              <div class="progress_table scroll_area">
+                <!--반복문-->
+                <!--반복문-->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
