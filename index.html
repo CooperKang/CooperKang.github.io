@@ -3,1135 +3,262 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>강재하 포트폴리오</title>
+		<title>JaeHa Kang Portfolio</title>
 		<link
 			href="https://fonts.googleapis.com/css?family=Inter&display=swap"
 			rel="stylesheet"
 		/>
 		<style>
 			:root {
-				--font-family-inter: 'Inter', sans-serif;
-				--text-rgb-255-182-182: rgba(255, 182, 182, 1);
-				--max-width: 1440px;
-				--container-padding: 2rem;
+				--main-bg: #6b8b8b;
+				--main-pink: #ffb6b6;
+				--main-white: #f8f8f8;
+				--card-bg: rgba(255, 255, 255, 0.08);
+				--card-border: rgba(255, 255, 255, 0.15);
+				--font-family: 'Inter', sans-serif;
 			}
-
-			.text-rgb-255-182-182 {
-				color: var(--text-rgb-255-182-182);
-			}
-
-			/* CSS Reset */
-			* {
+			html,
+			body {
 				margin: 0;
 				padding: 0;
+				background: var(--main-bg);
+				color: var(--main-pink);
+				font-family: var(--font-family);
+				min-height: 100vh;
+				width: 100vw;
 				box-sizing: border-box;
 			}
-
-			body {
-				width: 100%;
-				min-height: 100vh;
-				overflow-x: hidden;
-				font-family: var(--font-family-inter);
-			}
-
-			img {
-				max-width: 100%;
-				height: auto;
-				display: block;
-			}
-
-			/* 레이아웃 컨테이너 */
-			.frame-1-1 {
-				width: 100%;
-				max-width: var(--max-width);
+			.container {
+				max-width: 1200px;
 				margin: 0 auto;
-				padding: 0 var(--container-padding);
-			}
-
-			/* 페이지 섹션 */
-			.page-1-2,
-			.page-2-21,
-			.page-3-148,
-			.page-4-183,
-			.page-5-233 {
-				width: 100%;
-				min-height: 100vh;
-				padding: 2rem 0;
+				padding: 40px 16px 0 16px;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 			}
-
-			/* 프레임 컨테이너 */
-			.frame-3,
-			.frame-22,
-			.frame-149,
-			.frame-184,
-			.frame-234 {
+			.title {
+				font-size: 5vw;
+				font-weight: bold;
+				text-align: left;
 				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto;
-				position: relative;
+				margin-bottom: 40px;
+				line-height: 1.1;
+				letter-spacing: -2px;
 			}
-
-			/* 반응형 스타일 */
-			@media (max-width: 1440px) {
-				.frame-1-1 {
-					padding: 0 1.5rem;
-				}
+			.year {
+				font-size: 2vw;
+				position: absolute;
+				right: 40px;
+				top: 60px;
+				color: var(--main-pink);
+				opacity: 0.7;
 			}
-
-			@media (max-width: 768px) {
-				:root {
-					--container-padding: 1rem;
-				}
-
-				.frame-1-1 {
-					padding: 0 1rem;
-				}
-
-				.text-12 {
-					font-size: 80px;
-				}
-
-				.text-15,
-				.text-16,
-				.text-17,
-				.text-18 {
-					font-size: 18px;
-					line-height: 1.5;
-				}
-			}
-
-			/* 기타 스타일 */
-			.vector-4,
-			.vector-23,
-			.vector-150,
-			.vector-185,
-			.vector-235 {
-				fill: rgba(255, 255, 255, 1);
-				border: none;
-				outline: none;
-			}
-
-			.rectangle-5,
-			.rectangle-24,
-			.rectangle-151,
-			.rectangle-186,
-			.rectangle-236 {
+			.intro-card {
+				background: var(--card-bg);
+				border: 1.5px solid var(--card-border);
+				border-radius: 18px;
+				padding: 32px 32px 24px 32px;
+				margin-bottom: 40px;
 				width: 100%;
-				height: auto;
+				max-width: 500px;
+				color: var(--main-white);
+				font-size: 1.2rem;
+				box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.04);
 			}
-
-			.text-12 {
-				font-size: 159.55px;
-				line-height: 100%;
+			.intro-card strong {
+				color: var(--main-pink);
+				font-size: 1.5rem;
+				display: block;
+				margin-bottom: 10px;
 			}
-
-			.text-15,
-			.text-16 {
-				font-size: 21px;
-				line-height: 30px;
-			}
-
-			.text-17,
-			.text-18 {
-				font-size: 29.1px;
-				line-height: 42px;
-			}
-
-			.text-25,
-			.text-26 {
-				font-size: 26.1px;
-				line-height: 37.95px;
-			}
-
-			.text-39,
-			.text-40,
-			.text-41 {
-				font-size: 15.5px;
-				line-height: 100%;
-			}
-
-			.text-42 {
-				font-weight: 700;
-				font-size: 30px;
-				line-height: 43px;
-			}
-
-			.text-53,
-			.text-54,
-			.text-55,
-			.text-56,
-			.text-57,
-			.text-58,
-			.text-59,
-			.text-60,
-			.text-61,
-			.text-62,
-			.text-63,
-			.text-64,
-			.text-65,
-			.text-66,
-			.text-67,
-			.text-68,
-			.text-69,
-			.text-70,
-			.text-71,
-			.text-72,
-			.text-73,
-			.text-74,
-			.text-75,
-			.text-76,
-			.text-77,
-			.text-78,
-			.text-79,
-			.text-80 {
-				font-size: 15px;
-				line-height: 100%;
-			}
-
-			.text-81,
-			.text-82 {
-				font-weight: 700;
-				font-size: 7.5px;
-				line-height: 22px;
-			}
-
-			.text-83,
-			.text-84,
-			.text-85 {
-				font-weight: 700;
-				font-size: 15px;
-				line-height: 100%;
-			}
-
-			.text-86 {
-				font-size: 14.65px;
-				line-height: 100%;
-			}
-
-			.group-87,
-			.group-99,
-			.group-111,
-			.group-123,
-			.group-135 {
+			.profile-section {
 				display: flex;
-				align-items: center;
-				gap: 0.5rem;
-			}
-
-			.vector-88,
-			.vector-90,
-			.vector-92,
-			.vector-100,
-			.vector-102,
-			.vector-104,
-			.vector-112,
-			.vector-114,
-			.vector-116,
-			.vector-124,
-			.vector-126,
-			.vector-128,
-			.vector-136,
-			.vector-138,
-			.vector-140 {
-				fill: rgba(255, 182, 182, 1);
-			}
-
-			.vector-89,
-			.vector-91,
-			.vector-93,
-			.vector-95,
-			.vector-97,
-			.vector-101,
-			.vector-103,
-			.vector-105,
-			.vector-107,
-			.vector-109,
-			.vector-113,
-			.vector-115,
-			.vector-117,
-			.vector-119,
-			.vector-121,
-			.vector-125,
-			.vector-127,
-			.vector-129,
-			.vector-131,
-			.vector-133,
-			.vector-137,
-			.vector-139,
-			.vector-141,
-			.vector-143,
-			.vector-145 {
-				fill: rgba(107, 139, 139, 1);
-			}
-
-			.vector-94,
-			.vector-96,
-			.vector-106,
-			.vector-108,
-			.vector-118,
-			.vector-120,
-			.vector-130,
-			.vector-132,
-			.vector-142,
-			.vector-144 {
-				fill: rgba(217, 217, 217, 1);
-			}
-
-			.text-98,
-			.text-110,
-			.text-122,
-			.text-134 {
-				font-size: 14.18px;
-				line-height: 100%;
-			}
-
-			.clip-path-frame-6,
-			.clip-path-frame-8,
-			.clip-path-frame-10,
-			.clip-path-frame-13,
-			.clip-path-frame-19,
-			.clip-path-frame-27,
-			.clip-path-frame-29,
-			.clip-path-frame-31,
-			.clip-path-frame-33,
-			.clip-path-frame-35,
-			.clip-path-frame-37,
-			.clip-path-frame-43,
-			.clip-path-frame-45,
-			.clip-path-frame-47,
-			.clip-path-frame-49,
-			.clip-path-frame-51,
-			.clip-path-frame-146,
-			.clip-path-frame-152,
-			.clip-path-frame-170,
-			.clip-path-frame-172,
-			.clip-path-frame-174,
-			.clip-path-frame-176,
-			.clip-path-frame-181,
-			.clip-path-frame-199,
-			.clip-path-frame-201,
-			.clip-path-frame-203,
-			.clip-path-frame-210,
-			.clip-path-frame-218,
-			.clip-path-frame-225,
-			.clip-path-frame-237,
-			.clip-path-frame-239,
-			.clip-path-frame-241,
-			.clip-path-frame-244,
-			.clip-path-frame-246,
-			.clip-path-frame-248,
-			.clip-path-frame-251,
-			.clip-path-frame-254,
-			.clip-path-frame-257 {
-				overflow: hidden;
-			}
-
-			.rectangle-7,
-			.rectangle-9,
-			.rectangle-11,
-			.rectangle-14,
-			.rectangle-20,
-			.rectangle-28,
-			.rectangle-30,
-			.rectangle-32,
-			.rectangle-34,
-			.rectangle-36,
-			.rectangle-38,
-			.rectangle-44,
-			.rectangle-46,
-			.rectangle-48,
-			.rectangle-50,
-			.rectangle-52,
-			.rectangle-147,
-			.rectangle-153,
-			.rectangle-171,
-			.rectangle-173,
-			.rectangle-175,
-			.rectangle-177,
-			.rectangle-182,
-			.rectangle-200,
-			.rectangle-202,
-			.rectangle-204,
-			.rectangle-211,
-			.rectangle-219,
-			.rectangle-226,
-			.rectangle-238,
-			.rectangle-240,
-			.rectangle-242,
-			.rectangle-245,
-			.rectangle-247,
-			.rectangle-249,
-			.rectangle-252,
-			.rectangle-255,
-			.rectangle-258 {
+				flex-wrap: wrap;
+				gap: 32px;
 				width: 100%;
-				height: auto;
+				margin-bottom: 48px;
+				justify-content: center;
 			}
-
-			.text-154,
-			.text-156,
-			.text-157,
-			.text-159,
-			.text-160,
-			.text-161,
-			.text-162,
-			.text-164,
-			.text-166,
-			.text-167,
-			.text-168,
-			.text-169 {
-				font-size: 22.4px;
-				line-height: 32.04px;
+			.profile-img {
+				width: 180px;
+				height: 180px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 3px solid var(--main-pink);
+				background: #fff;
 			}
-
-			.text-187,
-			.text-188,
-			.text-189,
-			.text-190,
-			.text-191,
-			.text-192,
-			.text-193,
-			.text-195,
-			.text-196,
-			.text-197,
-			.text-198 {
-				font-weight: 700;
-				font-size: 29.1px;
-				line-height: 42px;
+			.profile-info {
+				flex: 1 1 320px;
+				min-width: 320px;
+				color: var(--main-white);
+				font-size: 1.1rem;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				justify-content: center;
 			}
-
-			.vector-206,
-			.vector-213,
-			.vector-221 {
-				border: 0.75px solid rgba(132, 171, 170, 1);
+			.profile-info .name {
+				font-size: 2rem;
+				font-weight: bold;
+				color: var(--main-pink);
 			}
-
-			.text-207,
-			.text-214,
-			.text-222 {
-				font-weight: 700;
-				font-size: 29.1px;
-				line-height: 100%;
+			.profile-info .contact {
+				color: var(--main-pink);
+				font-size: 1rem;
+				margin: 4px 0;
 			}
-
-			.text-208,
-			.text-209,
-			.text-215,
-			.text-216,
-			.text-217,
-			.text-223,
-			.text-224 {
-				font-weight: 700;
-				font-size: 29.1px;
-				line-height: 100%;
+			.profile-info .desc {
+				color: var(--main-white);
+				font-size: 1.1rem;
+				margin-top: 8px;
 			}
-
-			.text-227,
-			.text-228,
-			.text-229,
-			.text-230,
-			.text-231,
-			.text-232 {
-				font-size: 19.68px;
-				line-height: 100%;
+			.cards-section {
+				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 24px;
+				margin-bottom: 60px;
 			}
-
-			.text-243 {
-				font-size: 21px;
-				line-height: 30px;
+			.card {
+				background: var(--card-bg);
+				border: 1.5px solid var(--card-border);
+				border-radius: 16px;
+				padding: 28px 20px 20px 20px;
+				color: var(--main-white);
+				min-height: 160px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.03);
 			}
-
-			.text-250,
-			.text-253,
-			.text-256 {
-				font-size: 15.5px;
-				line-height: 100%;
+			.card .card-title {
+				font-size: 1.2rem;
+				font-weight: bold;
+				color: var(--main-pink);
+				margin-bottom: 8px;
+			}
+			.card .card-desc {
+				font-size: 1rem;
+				color: var(--main-white);
+				margin-bottom: 8px;
+			}
+			.card .card-label {
+				font-size: 0.95rem;
+				color: var(--main-pink);
+				opacity: 0.7;
+				margin-top: 8px;
+			}
+			.thankyou-section {
+				width: 100%;
+				margin: 80px 0 40px 0;
+				text-align: center;
+			}
+			.thankyou-section .thankyou {
+				font-size: 4vw;
+				font-weight: bold;
+				color: var(--main-pink);
+				margin-bottom: 32px;
+			}
+			.thankyou-section .contact {
+				color: var(--main-white);
+				font-size: 1.1rem;
+				margin-bottom: 8px;
+			}
+			.thankyou-section .year {
+				font-size: 1.5vw;
+				color: var(--main-pink);
+				opacity: 0.7;
+				margin-top: 24px;
+			}
+			@media (max-width: 600px) {
+				.title {
+					font-size: 2.2rem;
+				}
+				.thankyou-section .thankyou {
+					font-size: 2rem;
+				}
+				.year {
+					font-size: 1.1rem;
+					right: 16px;
+					top: 24px;
+				}
+				.profile-section {
+					flex-direction: column;
+					align-items: center;
+				}
+				.profile-info {
+					min-width: 0;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<div class="frame-1-1">
-			<section class="page-1-2">
-				<div class="frame-3">
-					<img src="images/vector-4.svg" class="vector-4" alt="배경 벡터" />
-					<img
-						src="images/rectangle-5.png"
-						class="rectangle-5"
-						alt="배경 이미지"
-					/>
-					<div class="clip-path-frame-6">
-						<img
-							src="images/rectangle-7.png"
-							class="rectangle-7"
-							alt="클립 패스 이미지"
-						/>
-					</div>
-					<div class="clip-path-frame-8">
-						<img
-							src="images/rectangle-9.png"
-							class="rectangle-9"
-							alt="클립 패스 이미지"
-						/>
-					</div>
-					<div class="clip-path-frame-10">
-						<img
-							src="images/rectangle-11.png"
-							class="rectangle-11"
-							alt="클립 패스 이미지"
-						/>
-					</div>
-					<h1 class="text-12">
-						<span class="text-rgb-255-182-182">JaeHa Kang</span>
-					</h1>
-					<div class="clip-path-frame-13">
-						<img
-							src="images/rectangle-14.png"
-							class="rectangle-14"
-							alt="클립 패스 이미지"
-						/>
-					</div>
-					<p class="text-15">
-						<span class="text-rgb-255-182-182"
-							>코드로 세상을 바꾸는 개발자,<br />혁신적 솔루션으로 미래를
-							만듭니다</span
-						>
-					</p>
-					<p class="text-17">
-						<span class="text-rgb-255-182-182"
-							>안녕하세요.<br />개발자 강재하입니다</span
-						>
-					</p>
-					<div class="clip-path-frame-19">
-						<img
-							src="images/rectangle-20.png"
-							class="rectangle-20"
-							alt="클립 패스 이미지"
-						/>
+		<div class="container">
+			<div class="title">JaeHa Kang<br />Portfolio.</div>
+			<div class="year">2025</div>
+			<div class="intro-card">
+				<strong>안녕하세요.<br />개발자 강재하입니다!</strong>
+				코드로 세상을 바꾸는 개발자,<br />혁신적 솔루션으로 미래를 만듭니다.
+			</div>
+			<div class="profile-section">
+				<img src="images/profile.png" alt="프로필 이미지" class="profile-img" />
+				<div class="profile-info">
+					<div class="name">JaeHa Kang</div>
+					<div class="contact">010-4998-4830</div>
+					<div class="contact">jhkang3457@gmail.com</div>
+					<div class="desc">
+						전체 시스템 구조 설계 및 효율적 관리 기능 개발 역량<br />
+						데이터 시각화 및 분석을 통한 인사이트 도출 능력<br />
+						RESTful API 설계 및 웹 기반 시스템 구축 역량<br />
+						주요 기술: ReactJS, SpringBoot, AWS, Elasticsearch, Python
 					</div>
 				</div>
-			</section>
-			<section class="page-2-21">
-				<div class="frame-22">
-					<img src="images/vector-23.svg" class="vector-23" alt="배경 벡터" />
-					<img
-						src="images/rectangle-24.png"
-						class="rectangle-24"
-						alt="배경 이미지"
-					/>
-					<h2 class="text-25">
-						<span class="text-rgb-255-182-182"
-							>안녕하세요.<br />개발자 강재하입니다</span
-						>
-					</h2>
-					<p class="text-26"><span class="text-rgb-255-182-182">!</span></p>
-					<div class="clip-path-frame-27">
-						<img
-							src="images/rectangle-28.png"
-							class="rectangle-28"
-							alt="rectangle"
-						/>
+			</div>
+			<div class="cards-section">
+				<div class="card">
+					<div class="card-title">EDUCATION</div>
+					<div class="card-desc">
+						2024-03 ~ 상명대학교 컴퓨터과학과 재학<br />2017-03 ~ 2019-09
+						학점은행 경영학전공
 					</div>
-					<div class="clip-path-frame-29">
-						<img
-							src="images/rectangle-30.png"
-							class="rectangle-30"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-31">
-						<img
-							src="images/rectangle-32.png"
-							class="rectangle-32"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-33">
-						<img
-							src="images/rectangle-34.png"
-							class="rectangle-34"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-35">
-						<img
-							src="images/rectangle-36.png"
-							class="rectangle-36"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-37">
-						<img
-							src="images/rectangle-38.png"
-							class="rectangle-38"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-39">
-						<span class="text-rgb-255-182-182">jhkang3457@gmail.com</span>
-					</p>
-					<p class="text-40">
-						<span class="text-rgb-255-182-182">010-4998-4830</span>
-					</p>
-					<p class="text-41">
-						<span class="text-rgb-255-182-182">JaeHa Kang</span>
-					</p>
-					<p class="text-42">
-						<span class="text-rgb-255-182-182"
-							>코드로 세상을 바꾸는 개발자, 혁신적 솔루션으로 미래를
-							만듭니다.</span
-						>
-					</p>
-					<div class="clip-path-frame-43">
-						<img
-							src="images/rectangle-44.png"
-							class="rectangle-44"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-45">
-						<img
-							src="images/rectangle-46.png"
-							class="rectangle-46"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-47">
-						<img
-							src="images/rectangle-48.png"
-							class="rectangle-48"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-49">
-						<img
-							src="images/rectangle-50.png"
-							class="rectangle-50"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-51">
-						<img
-							src="images/rectangle-52.png"
-							class="rectangle-52"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-53">
-						<span class="text-rgb-255-182-182">2024-03 ~ </span>
-					</p>
-					<p class="text-54">
-						<span class="text-rgb-255-182-182"
-							>재학 상명대학교 컴퓨터과학과</span
-						>
-					</p>
-					<p class="text-55">
-						<span class="text-rgb-255-182-182">2017-03 ~ 2019-09 </span>
-					</p>
-					<p class="text-56">
-						<span class="text-rgb-255-182-182">학점은행 경영학전공</span>
-					</p>
-					<p class="text-57">
-						<span class="text-rgb-255-182-182">2021-11 ~ </span>
-					</p>
-					<p class="text-58">
-						<span class="text-rgb-255-182-182">재직 중 파이브웍스</span>
-					</p>
-					<p class="text-59">
-						<span class="text-rgb-255-182-182">2021-05 ~ 2021-10 (</span>
-					</p>
-					<p class="text-60">
-						<span class="text-rgb-255-182-182">디지털컨버전스</span>
-					</p>
-					<p class="text-61">
-						<span class="text-rgb-255-182-182">) 디지털</span>
-					</p>
-					<p class="text-62">
-						<span class="text-rgb-255-182-182">데이터 융합 </span>
-					</p>
-					<p class="text-63"><span class="text-rgb-255-182-182">JAVA</span></p>
-					<p class="text-64"><span class="text-rgb-255-182-182">응용 </span></p>
-					<p class="text-65"><span class="text-rgb-255-182-182">SW</span></p>
-					<p class="text-66">
-						<span class="text-rgb-255-182-182">개발자 전문과정</span>
-					</p>
-					<p class="text-67"><span class="text-rgb-255-182-182">(</span></p>
-					<p class="text-68">
-						<span class="text-rgb-255-182-182">중앙정보기술인재개발원</span>
-					</p>
-					<p class="text-69"><span class="text-rgb-255-182-182">)</span></p>
-					<p class="text-70">
-						<span class="text-rgb-255-182-182">2018-02 ~ 2018-07 </span>
-					</p>
-					<p class="text-71">
-						<span class="text-rgb-255-182-182">웹퍼블리셔</span>
-					</p>
-					<p class="text-72">
-						<span class="text-rgb-255-182-182">/ 프론트엔드</span>
-					</p>
-					<p class="text-73">
-						<span class="text-rgb-255-182-182">개발자</span>
-					</p>
-					<p class="text-74">
-						<span class="text-rgb-255-182-182">(Frontend, PHP) – </span>
-					</p>
-					<p class="text-75">
-						<span class="text-rgb-255-182-182">디지털컨버전스 </span>
-					</p>
-					<p class="text-76"><span class="text-rgb-255-182-182">( 그</span></p>
-					<p class="text-77">
-						<span class="text-rgb-255-182-182">린컴퓨터아카데미</span>
-					</p>
-					<p class="text-78"><span class="text-rgb-255-182-182">)</span></p>
-					<p class="text-79">
-						<span class="text-rgb-255-182-182"
-							>2023-01 AWS Certified Cloud</span
-						>
-					</p>
-					<p class="text-80">
-						<span class="text-rgb-255-182-182">Practitioner AWS</span>
-					</p>
-					<p class="text-81">
-						<span class="text-rgb-255-182-182"
-							># 전체 시스템 구조 설계 및 효율적 관리 기능 개발 역량</span
-						>
-					</p>
-					<p class="text-82">
-						<span class="text-rgb-255-182-182"
-							># 데이터 시각화 및 분석을 통한 인사이 트 도출 능력</span
-						>
-					</p>
-					<p class="text-83">
-						<span class="text-rgb-255-182-182"># RESTful API </span>
-					</p>
-					<p class="text-84">
-						<span class="text-rgb-255-182-182">설계 및 웹 기반 시스템</span>
-					</p>
-					<p class="text-85">
-						<span class="text-rgb-255-182-182">구축 역량</span>
-					</p>
-					<p class="text-86">
-						<span class="text-rgb-255-182-182">ReactJS</span>
-					</p>
-					<div class="group-87">
-						<img src="images/vector-88.svg" class="vector-88" alt="vector" />
-						<img src="images/vector-89.svg" class="vector-89" alt="vector" />
-						<img src="images/vector-90.svg" class="vector-90" alt="vector" />
-						<img src="images/vector-91.svg" class="vector-91" alt="vector" />
-						<img src="images/vector-92.svg" class="vector-92" alt="vector" />
-						<img src="images/vector-93.svg" class="vector-93" alt="vector" />
-						<img src="images/vector-94.svg" class="vector-94" alt="vector" />
-						<img src="images/vector-95.svg" class="vector-95" alt="vector" />
-						<img src="images/vector-96.svg" class="vector-96" alt="vector" />
-						<img src="images/vector-97.svg" class="vector-97" alt="vector" />
-						<p class="text-98">
-							<span class="text-rgb-255-182-182">SpringBoot</span>
-						</p>
-					</div>
-					<div class="group-99">
-						<img src="images/vector-100.svg" class="vector-100" alt="vector" />
-						<img src="images/vector-101.svg" class="vector-101" alt="vector" />
-						<img src="images/vector-102.svg" class="vector-102" alt="vector" />
-						<img src="images/vector-103.svg" class="vector-103" alt="vector" />
-						<img src="images/vector-104.svg" class="vector-104" alt="vector" />
-						<img src="images/vector-105.svg" class="vector-105" alt="vector" />
-						<img src="images/vector-106.svg" class="vector-106" alt="vector" />
-						<img src="images/vector-107.svg" class="vector-107" alt="vector" />
-						<img src="images/vector-108.svg" class="vector-108" alt="vector" />
-						<img src="images/vector-109.svg" class="vector-109" alt="vector" />
-						<p class="text-110">
-							<span class="text-rgb-255-182-182">AWS</span>
-						</p>
-					</div>
-					<div class="group-111">
-						<img src="images/vector-112.svg" class="vector-112" alt="vector" />
-						<img src="images/vector-113.svg" class="vector-113" alt="vector" />
-						<img src="images/vector-114.svg" class="vector-114" alt="vector" />
-						<img src="images/vector-115.svg" class="vector-115" alt="vector" />
-						<img src="images/vector-116.svg" class="vector-116" alt="vector" />
-						<img src="images/vector-117.svg" class="vector-117" alt="vector" />
-						<img src="images/vector-118.svg" class="vector-118" alt="vector" />
-						<img src="images/vector-119.svg" class="vector-119" alt="vector" />
-						<img src="images/vector-120.svg" class="vector-120" alt="vector" />
-						<img src="images/vector-121.svg" class="vector-121" alt="vector" />
-						<p class="text-122">
-							<span class="text-rgb-255-182-182">ElasticSearch</span>
-						</p>
-					</div>
-					<div class="group-123">
-						<img src="images/vector-124.svg" class="vector-124" alt="vector" />
-						<img src="images/vector-125.svg" class="vector-125" alt="vector" />
-						<img src="images/vector-126.svg" class="vector-126" alt="vector" />
-						<img src="images/vector-127.svg" class="vector-127" alt="vector" />
-						<img src="images/vector-128.svg" class="vector-128" alt="vector" />
-						<img src="images/vector-129.svg" class="vector-129" alt="vector" />
-						<img src="images/vector-130.svg" class="vector-130" alt="vector" />
-						<img src="images/vector-131.svg" class="vector-131" alt="vector" />
-						<img src="images/vector-132.svg" class="vector-132" alt="vector" />
-						<img src="images/vector-133.svg" class="vector-133" alt="vector" />
-						<p class="text-134">
-							<span class="text-rgb-255-182-182">Python</span>
-						</p>
-					</div>
-					<div class="group-135">
-						<img src="images/vector-136.svg" class="vector-136" alt="vector" />
-						<img src="images/vector-137.svg" class="vector-137" alt="vector" />
-						<img src="images/vector-138.svg" class="vector-138" alt="vector" />
-						<img src="images/vector-139.svg" class="vector-139" alt="vector" />
-						<img src="images/vector-140.svg" class="vector-140" alt="vector" />
-						<img src="images/vector-141.svg" class="vector-141" alt="vector" />
-						<img src="images/vector-142.svg" class="vector-142" alt="vector" />
-						<img src="images/vector-143.svg" class="vector-143" alt="vector" />
-						<img src="images/vector-144.svg" class="vector-144" alt="vector" />
-						<img src="images/vector-145.svg" class="vector-145" alt="vector" />
-					</div>
-					<div class="clip-path-frame-146">
-						<img
-							src="images/rectangle-147.png"
-							class="rectangle-147"
-							alt="rectangle"
-						/>
-					</div>
+					<div class="card-label">학력</div>
 				</div>
-			</section>
-			<section class="page-3-148">
-				<div class="frame-149">
-					<img src="images/vector-150.svg" class="vector-150" alt="배경 벡터" />
-					<img
-						src="images/rectangle-151.png"
-						class="rectangle-151"
-						alt="배경 이미지"
-					/>
-					<div class="clip-path-frame-152">
-						<img
-							src="images/rectangle-153.png"
-							class="rectangle-153"
-							alt="rectangle"
-						/>
+				<div class="card">
+					<div class="card-title">CAREER</div>
+					<div class="card-desc">
+						2021-11 ~ 재직 중 파이브웍스<br />2021-05 ~ 2021-10 디지털컨버전스
+						데이터 융합 SW 개발자 전문과정<br />2018-02 ~ 2018-07
+						웹퍼블리셔/프론트엔드 개발자
 					</div>
-					<p class="text-154">
-						<span class="text-rgb-255-182-182">대디지털 전환 시대,</span>
-					</p>
-					<p class="text-155"></p>
-					<p class="text-156">
-						<span class="text-rgb-255-182-182"
-							>다양한 도메인에서의 개발과 기획 참</span
-						>
-					</p>
-					<p class="text-157">
-						<span class="text-rgb-255-182-182"
-							>여를 통해 코드로 세상을 바꾸는 개발자 강재하입니다.</span
-						>
-					</p>
-					<p class="text-158"></p>
-					<p class="text-159"><span class="text-rgb-255-182-182">프</span></p>
-					<p class="text-160">
-						<span class="text-rgb-255-182-182"
-							>리랜서 플랫폼부터 바이오기업 인사관리 시스템</span
-						>
-					</p>
-					<p class="text-161">
-						<span class="text-rgb-255-182-182">, ChatGPT</span>
-					</p>
-					<p class="text-162">
-						<span class="text-rgb-255-182-182"
-							>기반 생기부 서비스까지 폭넓은 경험을 바탕으로 사용자 중 심의
-							혁신적 솔루션을 만들어왔습니다.</span
-						>
-					</p>
-					<p class="text-163"></p>
-					<p class="text-164">
-						<span class="text-rgb-255-182-182">기술을 넘어,</span>
-					</p>
-					<p class="text-165"></p>
-					<p class="text-166"><span class="text-rgb-255-182-182">사회</span></p>
-					<p class="text-167">
-						<span class="text-rgb-255-182-182"
-							>에 이바지하는 개발자가 되겠습니다.</span
-						>
-					</p>
-					<p class="text-168">
-						<span class="text-rgb-255-182-182"
-							>안녕하세요. 개발자 강재하입니다</span
-						>
-					</p>
-					<p class="text-169"><span class="text-rgb-255-182-182">!</span></p>
-					<div class="clip-path-frame-170">
-						<img
-							src="images/rectangle-171.png"
-							class="rectangle-171"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-172">
-						<img
-							src="images/rectangle-173.png"
-							class="rectangle-173"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-174">
-						<img
-							src="images/rectangle-175.png"
-							class="rectangle-175"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-176">
-						<img
-							src="images/rectangle-177.png"
-							class="rectangle-177"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-178">
-						<span class="text-rgb-255-182-182">jhkang3457@gmail.com</span>
-					</p>
-					<p class="text-179">
-						<span class="text-rgb-255-182-182">010-4998-4830</span>
-					</p>
-					<p class="text-180">
-						<span class="text-rgb-255-182-182">JaeHa Kang</span>
-					</p>
-					<div class="clip-path-frame-181">
-						<img
-							src="images/rectangle-182.png"
-							class="rectangle-182"
-							alt="rectangle"
-						/>
-					</div>
+					<div class="card-label">경력</div>
 				</div>
-			</section>
-			<section class="page-4-183">
-				<div class="frame-184">
-					<img src="images/vector-185.svg" class="vector-185" alt="배경 벡터" />
-					<img
-						src="images/rectangle-186.png"
-						class="rectangle-186"
-						alt="배경 이미지"
-					/>
-					<h2 class="text-187">
-						<span class="text-rgb-255-182-182"
-							>SKT x Open AI 주관<br />Prompt-er Day 2023</span
-						>
-					</h2>
-					<p class="text-188"><span class="text-rgb-255-182-182">주관</span></p>
-					<p class="text-189">
-						<span class="text-rgb-255-182-182">Prompt-er Day 2023</span>
-					</p>
-					<p class="text-190">
-						<span class="text-rgb-255-182-182"
-							>온라인심리상담 전문 플랫폼 사이트 유지보수</span
-						>
-					</p>
-					<p class="text-191"><span class="text-rgb-255-182-182">SK</span></p>
-					<p class="text-192">
-						<span class="text-rgb-255-182-182">바이오사이언스 인사</span>
-					</p>
-					<p class="text-193">
-						<span class="text-rgb-255-182-182"
-							>관리 시스템 운용 및 유 지보수,</span
-						>
-					</p>
-					<p class="text-194"></p>
-					<p class="text-195">
-						<span class="text-rgb-255-182-182">전사 </span>
-					</p>
-					<p class="text-196"><span class="text-rgb-255-182-182">BI </span></p>
-					<p class="text-197">
-						<span class="text-rgb-255-182-182">관리 시</span>
-					</p>
-					<p class="text-198">
-						<span class="text-rgb-255-182-182">스템 개발</span>
-					</p>
-					<div class="clip-path-frame-199">
-						<img
-							src="images/rectangle-200.png"
-							class="rectangle-200"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-201">
-						<img
-							src="images/rectangle-202.png"
-							class="rectangle-202"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-203">
-						<img
-							src="images/rectangle-204.png"
-							class="rectangle-204"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="group-205">
-						<img src="images/vector-206.svg" class="vector-206" alt="vector" />
-						<p class="text-207">
-							<span class="text-rgb-255-182-182">세무</span>
-						</p>
-					</div>
-					<p class="text-208">
-						<span class="text-rgb-255-182-182">대행</span>
-						<span class="text-rgb-255-182-182">서비스</span>
-						<span class="text-rgb-255-182-182">플랫</span>
-					</p>
-					<p class="text-209"><span class="text-rgb-255-182-182">폼</span></p>
-					<div class="clip-path-frame-210">
-						<img
-							src="images/rectangle-211.png"
-							class="rectangle-211"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="group-212">
-						<img src="images/vector-213.svg" class="vector-213" alt="vector" />
-						<p class="text-214">
-							<span class="text-rgb-255-182-182">Elasticsearch</span>
-						</p>
-					</div>
-					<p class="text-215"></p>
-					<p class="text-216">
-						<span class="text-rgb-255-182-182">기반 검</span>
-					</p>
-					<p class="text-217">
-						<span class="text-rgb-255-182-182">색엔진 관리 시스템 개 발</span>
-					</p>
-					<div class="clip-path-frame-218">
-						<img
-							src="images/rectangle-219.png"
-							class="rectangle-219"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="group-220">
-						<img src="images/vector-221.svg" class="vector-221" alt="vector" />
-						<p class="text-222">
-							<span class="text-rgb-255-182-182">인플루언서</span>
-						</p>
-					</div>
-					<p class="text-223">
-						<span class="text-rgb-255-182-182">팬테크</span>
-						<span class="text-rgb-255-182-182">플랫</span>
-					</p>
-					<p class="text-224"><span class="text-rgb-255-182-182">폼</span></p>
-					<div class="clip-path-frame-225">
-						<img
-							src="images/rectangle-226.png"
-							class="rectangle-226"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-227">
-						<span class="text-rgb-255-182-182">CASE 3</span>
-					</p>
-					<p class="text-228">
-						<span class="text-rgb-255-182-182">CASE 2</span>
-					</p>
-					<p class="text-229">
-						<span class="text-rgb-255-182-182">CASE 1</span>
-					</p>
-					<p class="text-230">
-						<span class="text-rgb-255-182-182">CASE 4</span>
-					</p>
-					<p class="text-231">
-						<span class="text-rgb-255-182-182">CASE 5</span>
-					</p>
-					<p class="text-232">
-						<span class="text-rgb-255-182-182">CASE 6</span>
-					</p>
+				<div class="card">
+					<div class="card-title">CERTIFICATES</div>
+					<div class="card-desc">2023-01 AWS Certified Cloud Practitioner</div>
+					<div class="card-label">자격증</div>
 				</div>
-			</section>
-			<section class="page-5-233">
-				<div class="frame-234">
-					<img src="images/vector-235.svg" class="vector-235" alt="vector" />
-					<img
-						src="images/rectangle-236.png"
-						class="rectangle-236"
-						alt="rectangle"
-					/>
-					<div class="clip-path-frame-237">
-						<img
-							src="images/rectangle-238.png"
-							class="rectangle-238"
-							alt="rectangle"
-						/>
+				<div class="card">
+					<div class="card-title">PROJECTS</div>
+					<div class="card-desc">
+						세무 대행 서비스 플랫폼<br />온라인심리상담 전문 플랫폼 사이트
+						유지보수<br />인플루언서 팬테크 플랫폼<br />SK바이오사이언스
+						인사관리 시스템 운영 및 유지보수, 전사 BI 관리 시스템 개발<br />Elasticsearch
+						기반 검색엔진 관리 시스템 개발<br />SKT x Open AI 주관 Prompt-er Day
+						2023
 					</div>
-					<div class="clip-path-frame-239">
-						<img
-							src="images/rectangle-240.png"
-							class="rectangle-240"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-241">
-						<img
-							src="images/rectangle-242.png"
-							class="rectangle-242"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-243">
-						<span class="text-rgb-255-182-182"
-							>코드로 세상을 바꾸는 개발자, 혁신적 솔루션으로 미래를 만듭니
-							다.</span
-						>
-					</p>
-					<div class="clip-path-frame-244">
-						<img
-							src="images/rectangle-245.png"
-							class="rectangle-245"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-246">
-						<img
-							src="images/rectangle-247.png"
-							class="rectangle-247"
-							alt="rectangle"
-						/>
-					</div>
-					<div class="clip-path-frame-248">
-						<img
-							src="images/rectangle-249.png"
-							class="rectangle-249"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-250">
-						<span class="text-rgb-255-182-182">jhkang3457@gmail.com</span>
-					</p>
-					<div class="clip-path-frame-251">
-						<img
-							src="images/rectangle-252.png"
-							class="rectangle-252"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-253">
-						<span class="text-rgb-255-182-182">010-4998-4830</span>
-					</p>
-					<div class="clip-path-frame-254">
-						<img
-							src="images/rectangle-255.png"
-							class="rectangle-255"
-							alt="rectangle"
-						/>
-					</div>
-					<p class="text-256">
-						<span class="text-rgb-255-182-182">JaeHa Kang</span>
-					</p>
-					<div class="clip-path-frame-257">
-						<img
-							src="images/rectangle-258.png"
-							class="rectangle-258"
-							alt="rectangle"
-						/>
-					</div>
+					<div class="card-label">주요 프로젝트</div>
 				</div>
-			</section>
+			</div>
+			<div class="thankyou-section">
+				<div class="thankyou">Thank You.</div>
+				<div class="contact">
+					JaeHa Kang | 010-4998-4830 | jhkang3457@gmail.com
+				</div>
+				<div class="contact">
+					코드로 세상을 바꾸는 개발자, 혁신적 솔루션으로 미래를 만듭니다.
+				</div>
+				<div class="year">2025</div>
+			</div>
 		</div>
 	</body>
 </html>
