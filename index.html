@@ -1,125 +1,303 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JaeHa Kang Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --main-color: #3b5c5c;
-      --accent-color: rgba(255, 182, 182, 1);
-      --font-family: 'Inter', sans-serif;
-    }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>강재하 포트폴리오</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Inter&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--font-family-inter: 'Inter', sans-serif;
+				--text-rgb-255-182-182: rgba(255, 182, 182, 1);
+				--max-width: 1440px;
+				--container-padding: 2rem;
+			}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+			.text-rgb-255-182-182 {
+				color: var(--text-rgb-255-182-182);
+			}
 
-    body {
-      background-color: var(--main-color);
-      font-family: var(--font-family);
-      color: var(--accent-color);
-      padding: 2rem;
-    }
+			/* CSS Reset */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-    header, section, footer {
-      margin-bottom: 3rem;
-    }
+			body {
+				width: 100%;
+				min-height: 100vh;
+				overflow-x: hidden;
+				font-family: var(--font-family-inter);
+			}
 
-    .main-title {
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
+			img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+			}
 
-    .year {
-      font-size: 1.5rem;
-      text-align: right;
-    }
+			/* 레이아웃 컨테이너 */
+			.frame-1-1 {
+				width: 100%;
+				max-width: var(--max-width);
+				margin: 0 auto;
+				padding: 0 var(--container-padding);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+			}
 
-    .greeting, .tagline {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
+			/* 페이지 섹션 */
+			.page-1-2,
+			.page-2-21,
+			.page-3-148,
+			.page-4-183,
+			.page-5-233 {
+				width: 100%;
+				min-height: 100vh;
+				padding: 2rem 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-color: rgba(255, 255, 255, 1);
+			}
 
-    .profile {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
+			/* 프레임 컨테이너 */
+			.frame-3,
+			.frame-22,
+			.frame-149,
+			.frame-184,
+			.frame-234 {
+				width: 100%;
+				max-width: 1200px;
+				margin: 0 auto;
+				position: relative;
+			}
 
-    .profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background-color: #fff;
-    }
+			/* 텍스트 스타일 */
+			.text-12 {
+				font-family: var(--font-family-inter);
+				font-weight: normal;
+				font-size: 159.55px;
+				line-height: 100%;
+				color: var(--text-rgb-255-182-182);
+			}
 
-    .info {
-      font-size: 1rem;
-    }
+			.text-15,
+			.text-17 {
+				font-family: var(--font-family-inter);
+				font-weight: normal;
+				font-size: 21px;
+				line-height: 30px;
+				color: var(--text-rgb-255-182-182);
+			}
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
+			/* 반응형 디자인 */
+			@media (max-width: 1440px) {
+				.frame-1-1 {
+					padding: 0 1.5rem;
+				}
+			}
 
-    .project {
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--accent-color);
-      padding: 1rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-    }
+			@media (max-width: 768px) {
+				:root {
+					--container-padding: 1rem;
+				}
 
-    footer h2 {
-      font-size: 2.5rem;
-      text-align: center;
-    }
+				.frame-1-1 {
+					padding: 0 1rem;
+				}
 
-    @media (max-width: 600px) {
-      .main-title {
-        font-size: 2rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1 class="main-title">JaeHa Kang<br />Portfolio.</h1>
-    <p class="year">2025</p>
-  </header>
+				.text-12 {
+					font-size: 80px;
+				}
 
-  <section class="intro">
-    <p class="greeting">안녕하세요. 개발자 강재하입니다 !</p>
-    <p class="tagline">코드로 세상을 바꾸는 개발자, 혁신적 솔루션으로 미래를 만듭니다.</p>
-  </section>
+				.text-15,
+				.text-17 {
+					font-size: 18px;
+					line-height: 1.5;
+				}
+			}
 
-  <section class="profile">
-    <img src="images/profile.png" alt="Profile" />
-    <div class="info">
-      <p>JaeHa Kang<br />010-4998-4830<br />jhkang3457@gmail.com</p>
-      <p>React, SpringBoot, AWS, Elasticsearch, Python</p>
-    </div>
-  </section>
+			/* 이미지 스타일 */
+			.vector-4,
+			.vector-23,
+			.vector-150,
+			.vector-185,
+			.vector-235 {
+				fill: rgba(255, 255, 255, 1);
+				border: none;
+				outline: none;
+			}
 
-  <section class="projects">
-    <div class="project">CASE 1: 세무 대행 서비스 플랫폼</div>
-    <div class="project">CASE 2: 온라인심리상담 전문 플랫폼 사이트 유지보수</div>
-    <div class="project">CASE 3: 인플루언서 팬테크 플랫폼</div>
-    <div class="project">CASE 4: SK바이오사이언스 인사+BI 시스템 개발</div>
-    <div class="project">CASE 5: Elasticsearch 기반 검색엔진 관리 시스템 개발</div>
-    <div class="project">CASE 6: SKT x Open AI 주관 Prompt-er Day 2023</div>
-  </section>
+			.rectangle-5,
+			.rectangle-24,
+			.rectangle-151,
+			.rectangle-186,
+			.rectangle-236 {
+				width: 100%;
+				height: auto;
+			}
 
-  <footer>
-    <h2>Thank You.</h2>
-    <p class="year">2025</p>
-  </footer>
-</body>
+			/* 클립 패스 프레임 */
+			[class^='clip-path-frame-'] {
+				width: 100%;
+				height: auto;
+			}
+
+			/* 그룹 스타일 */
+			[class^='group-'] {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="frame-1-1">
+			<!-- 메인 페이지 -->
+			<section class="page-1-2">
+				<div class="frame-3">
+					<img src="images/vector-4.svg" class="vector-4" alt="배경 벡터" />
+					<img
+						src="images/rectangle-5.png"
+						class="rectangle-5"
+						alt="배경 이미지"
+					/>
+					<div class="clip-path-frame-6">
+						<img
+							src="images/rectangle-7.png"
+							class="rectangle-7"
+							alt="클립 패스 이미지"
+						/>
+					</div>
+					<div class="clip-path-frame-8">
+						<img
+							src="images/rectangle-9.png"
+							class="rectangle-9"
+							alt="클립 패스 이미지"
+						/>
+					</div>
+					<div class="clip-path-frame-10">
+						<img
+							src="images/rectangle-11.png"
+							class="rectangle-11"
+							alt="클립 패스 이미지"
+						/>
+					</div>
+					<h1 class="text-12">
+						<span class="text-rgb-255-182-182">JaeHa Kang</span>
+					</h1>
+					<div class="clip-path-frame-13">
+						<img
+							src="images/rectangle-14.png"
+							class="rectangle-14"
+							alt="클립 패스 이미지"
+						/>
+					</div>
+					<p class="text-15">
+						<span class="text-rgb-255-182-182"
+							>코드로 세상을 바꾸는 개발자,<br />혁신적 솔루션으로 미래를
+							만듭니다</span
+						>
+					</p>
+					<p class="text-17">
+						<span class="text-rgb-255-182-182"
+							>안녕하세요.<br />개발자 강재하입니다</span
+						>
+					</p>
+					<div class="clip-path-frame-19">
+						<img
+							src="images/rectangle-20.png"
+							class="rectangle-20"
+							alt="클립 패스 이미지"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- 프로필 페이지 -->
+			<section class="page-2-21">
+				<div class="frame-22">
+					<img src="images/vector-23.svg" class="vector-23" alt="배경 벡터" />
+					<img
+						src="images/rectangle-24.png"
+						class="rectangle-24"
+						alt="배경 이미지"
+					/>
+					<h2 class="text-25">
+						<span class="text-rgb-255-182-182"
+							>안녕하세요.<br />개발자 강재하입니다</span
+						>
+					</h2>
+					<!-- ... existing code ... -->
+				</div>
+			</section>
+
+			<!-- 소개 페이지 -->
+			<section class="page-3-148">
+				<div class="frame-149">
+					<img src="images/vector-150.svg" class="vector-150" alt="배경 벡터" />
+					<img
+						src="images/rectangle-151.png"
+						class="rectangle-151"
+						alt="배경 이미지"
+					/>
+					<p class="text-154">
+						<span class="text-rgb-255-182-182">대디지털 전환 시대,</span>
+					</p>
+					<p class="text-156">
+						<span class="text-rgb-255-182-182"
+							>다양한 도메인에서의 개발과 기획 참여를 통해<br />코드로 세상을
+							바꾸는 개발자 강재하입니다.</span
+						>
+					</p>
+					<!-- ... existing code ... -->
+				</div>
+			</section>
+
+			<!-- 프로젝트 페이지 -->
+			<section class="page-4-183">
+				<div class="frame-184">
+					<img src="images/vector-185.svg" class="vector-185" alt="배경 벡터" />
+					<img
+						src="images/rectangle-186.png"
+						class="rectangle-186"
+						alt="배경 이미지"
+					/>
+					<h2 class="text-187">
+						<span class="text-rgb-255-182-182"
+							>SKT x Open AI 주관<br />Prompt-er Day 2023</span
+						>
+					</h2>
+					<!-- ... existing code ... -->
+				</div>
+			</section>
+
+			<!-- 마지막 페이지 -->
+			<section class="page-5-233">
+				<div class="frame-234">
+					<img src="images/vector-235.svg" class="vector-235" alt="배경 벡터" />
+					<img
+						src="images/rectangle-236.png"
+						class="rectangle-236"
+						alt="배경 이미지"
+					/>
+					<p class="text-243">
+						<span class="text-rgb-255-182-182"
+							>코드로 세상을 바꾸는 개발자,<br />혁신적 솔루션으로 미래를
+							만듭니다.</span
+						>
+					</p>
+					<!-- ... existing code ... -->
+				</div>
+			</section>
+		</div>
+	</body>
 </html>
