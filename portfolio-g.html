@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강재하 포트폴리오</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0052CC, #00B2FF);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 2rem;
+      background-color: rgba(0,0,0,0.4);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-right: 2rem;
+      border: 3px solid white;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    section {
+      padding: 3rem 2rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid white;
+      padding-left: 1rem;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 1rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
+    }
+    .highlight {
+      background-color: rgba(255,255,255,0.2);
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .highlight:hover {
+      transform: scale(1.02);
+      background-color: rgba(255,255,255,0.3);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background-color: rgba(0,0,0,0.3);
+    }
+    .fadein {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/profile.png" alt="Profile Picture">
+    <div>
+      <h1>개발자 강재하</h1>
+      <p>코드로 세상을 바꾸는 개발자, 혁신적 솔루션으로 미래를 만듭니다</p>
+      <p>📧 jhkang3457@naver.com</p>
+    </div>
+  </header>
+
+  <section class="fadein">
+    <h2>👨‍🎓 학력</h2>
+    <div class="highlight">
+      <ul>
+        <li>2024-03 ~ 재학: 상명대학교 컴퓨터과학과 석사과정</li>
+        <li>2017-03 ~ 2019-09: 학점은행제 경영학 전공</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fadein">
+    <h2>💼 경력</h2>
+    <div class="highlight">
+      <ul>
+        <li>2021-11 ~ 재직 중: 파이브웍스</li>
+        <li>2021-05 ~ 2021-10: 디지털 데이터 융합 JAVA응용 SW개발자 (중앙정보기술인재개발원)</li>
+        <li>2018-02 ~ 2018-07: 웹퍼블리셔/프론트엔드 개발자 (그린컴퓨터아카데미)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fadein">
+    <h2>📜 자격증</h2>
+    <div class="highlight">
+      <ul>
+        <li>2023-01: AWS Certified Cloud Practitioner</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fadein">
+    <h2>💡 전문 역량</h2>
+    <div class="highlight">
+      <ul>
+        <li># 전체 시스템 구조 설계 및 효율적 관리 기능 개발 역량</li>
+        <li># 데이터 시각화 및 분석을 통한 인사이트 도출 능력</li>
+        <li># RESTful API 설계 및 웹 기반 시스템 구축 역량</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fadein">
+    <h2>🛠️ 기술 스택</h2>
+    <div class="highlight">
+      <ul>
+        <li>ReactJS, SpringBoot, AWS, ElasticSearch, Python</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fadein">
+    <h2>📂 프로젝트 경험</h2>
+    <div class="highlight">
+      <ul>
+        <li>세무 대행 서비스 플랫폼 개발 프로젝트</li>
+        <li>온라인 심리상담 전문 플랫폼 유지보수</li>
+        <li>인플루언서 펜테크 플랫폼 개발 프로젝트</li>
+        <li>SK바이오사이언스 인사관리 시스템 운용 및 유지보수</li>
+        <li>BI 시스템 개발</li>
+        <li>ElasticSearch 기반 검색엔진 관리 시스템 개발</li>
+        <li>SKT x Open AI 주관 Prompt-er Day 2023 참여</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fadein">
+    <h2>🎯 자기소개</h2>
+    <div class="highlight">
+      <p>
+        대디지털 전환 시대, 다양한 도메인에서의 개발과 기획 참여를 통해 코드로 세상을 바꾸는 개발자 강재하입니다.<br>
+        프리랜서 플랫폼부터 바이오기업 인사관리 시스템, ChatGPT 기반 생기부 서비스까지 폭넓은 경험을 바탕으로 사용자 중심의 혁신적 솔루션을 만들어왔습니다.<br>
+        기술을 넘어, 사회에 이바지하는 개발자가 되겠습니다.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 JaeHa Kang. All rights reserved.
+  </footer>
+
+  <script>
+    const fadeEls = document.querySelectorAll('.fadein');
+    window.addEventListener('scroll', () => {
+      fadeEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.style.animationDelay = '0.1s';
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
