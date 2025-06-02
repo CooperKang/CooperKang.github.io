@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뇌-심리-호르몬 기반 AGI 연구개발 연차별 계획</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .overview {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .overview h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .tech-comparison {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+        
+        .challenge-badge {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .year-section {
+            margin-bottom: 50px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .year-header {
+            padding: 25px;
+            color: white;
+            font-size: 1.5em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .year1 .year-header { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); }
+        .year2 .year-header { background: linear-gradient(135deg, #4834d4 0%, #686de0 100%); }
+        .year3 .year-header { background: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%); }
+        .year4 .year-header { background: linear-gradient(135deg, #5f27cd 0%, #a55eea 100%); }
+        
+        .year-icon {
+            font-size: 2em;
+        }
+        
+        .year-content {
+            padding: 30px;
+            background: white;
+        }
+        
+        .research-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .research-table th {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .research-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        .research-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .research-table tr:hover {
+            background-color: #e8f4fd;
+            transition: background-color 0.3s ease;
+        }
+        
+        .category {
+            font-weight: bold;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ddd6fe 0%, #c7d2fe 100%);
+            padding: 8px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        
+        .metrics {
+            background: linear-gradient(135deg, #d1f2eb 0%, #a3e4d7 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .metrics h4 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #a3e4d7;
+        }
+        
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,184,148,0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .content { padding: 20px; }
+            .research-table, .comparison-table { font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 뇌-심리-호르몬 기반 AGI 연구개발</h1>
+            <p>멀티모달 생체신호 융합 기반 차세대 AGI 시스템 연구계획</p>
+        </div>
+        
+        <div class="content">
+            <div class="overview">
+                <h2>📋 연구 개요</h2>
+                <p><strong>개념:</strong> 뇌파(EEG), 심리검사, 호르몬 반응을 통합하여 정서·행동 예측이 가능한 적응-성장-교감형 AGI 개발</p>
+                <p><strong>목표:</strong> 환경 적응성, 자율 성장성, 인간 교감 능력을 구현한 인간지향적 AI 서비스 실현</p>
+                <p><strong>총 연구기간:</strong> 45개월 (1단계 6개월 + 2단계 39개월)</p>
+                <p><strong>총 연구비:</strong> 40.15억원</p>
+            </div>
+            
+            <h2>🔍 기술 차별성 비교</h2>
+            <div class="tech-comparison">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>기존 기술 수준</th>
+                            <th>제안 기술 수준</th>
+                            <th>도전성</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>신호 처리</strong></td>
+                            <td>EEG 기반 집중도 측정 (70-80%)</td>
+                            <td>뇌파+심리+호르몬 융합 분석 (≥90%)</td>
+                            <td><span class="challenge-badge">최초 멀티모달 통합</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>정서 분류</strong></td>
+                            <td>단일 감정 (Happy/Sad, 2-4종)</td>
+                            <td>복합 감정 분류 (6-8종, ≥85%)</td>
+                            <td><span class="challenge-badge">복합 정서 상태 구분</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>행동 예측</strong></td>
+                            <td>미구현 (연구 공백 영역)</td>
+                            <td>회피/공격/협동/의욕 예측 (≥80%)</td>
+                            <td><span class="challenge-badge">행동 경향 예측 최초 도전</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>실시간 처리</strong></td>
+                            <td>오프라인 분석 중심</td>
+                            <td>실시간 상호작용 (응답 ≤3초)</td>
+                            <td><span class="challenge-badge">실시간 AGI 인터랙션</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>설명가능성</strong></td>
+                            <td>Black-box 모델</td>
+                            <td>XAI 통합 설명성 (만족도 ≥85%)</td>
+                            <td><span class="challenge-badge">투명한 AGI 의사결정</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="year-section year1">
+                <div class="year-header">
+                    <span class="year-icon">🚀</span>
+                    <div>
+                        <div>1단계 | 1차년도 (6개월)</div>
+                        <div style="font-size: 0.8em; opacity: 0.9;">2025.7 ~ 2025.12</div>
+                    </div>
+                </div>
+                <div class="year-content">
+                    <table class="research-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">연구 영역</th>
+                                <th>세부 연구 내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="category">데이터 수집 환경</span></td>
+                                <td>
+                                    • EEG, PPG, GSR, 호르몬 동시 수집 시스템 설계<br>
+                                    • IRB 승인 기반 실험 프로토콜 수립<br>
+                                    • 데이터 품질 관리 및 전처리 파이프라인 개발
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">파일럿 데이터셋</span></td>
+                                <td>
+                                    • 피험자 20명, 정서 유발 자극 실험<br>
+                                    • 심리검사(MBTI, Big5) 병행 실시<br>
+                                    • 신호별 특징 추출 및 시계열 정렬
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">핵심 추론 모델</span></td>
+                                <td>
+                                    • CNN(EEG), LSTM(시계열), MLP(심리검사) 특징 추출기<br>
+                                    • Cross-Modal Attention 메커니즘 구현<br>
+                                    • 6종 감정 분류 모델 학습 및 시각화
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">AGI 프로토타입</span></td>
+                                <td>
+                                    • 사용자 상태 기반 응답 생성기 구현<br>
+                                    • 실시간 상태 모니터링 시스템<br>
+                                    • Streamlit 대화형 데모 완성
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="metrics">
+                        <h4>📊 정량적 성과 목표</h4>
+                        <div class="metric-item">
+                            <span>정서 분류 정확도</span>
+                            <span class="metric-value">≥ 75%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>실시간 처리 지연</span>
+                            <span class="metric-value">≤ 5초</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>학술 성과</span>
+                            <span class="metric-value">학회 발표 2건, 해외 초록 1편</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>지식재산</span>
+                            <span class="metric-value">SW 저작권 1건, GitHub 공개</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-section year2">
+                <div class="year-header">
+                    <span class="year-icon">📈</span>
+                    <div>
+                        <div>2단계 | 2차년도 (12개월)</div>
+                        <div style="font-size: 0.8em; opacity: 0.9;">2026.1 ~ 2026.12</div>
+                    </div>
+                </div>
+                <div class="year-content">
+                    <table class="research-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">연구 영역</th>
+                                <th>세부 연구 내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="category">대규모 데이터셋</span></td>
+                                <td>
+                                    • 피험자 200명 이상 확보 (다양한 연령/성별/정신건강 상태)<br>
+                                    • 웨어러블 센서 기반 일상 환경 데이터 수집<br>
+                                    • 장기 추적 데이터 수집 (최소 3개월)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">모델 고도화</span></td>
+                                <td>
+                                    • Transformer 기반 어텐션 메커니즘 도입<br>
+                                    • 개인 프로파일 반영 적응형 학습 (Continual Learning)<br>
+                                    • 멀티태스크 학습: 정서+각성도+스트레스 동시 추론
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">XAI 모듈</span></td>
+                                <td>
+                                    • Attention 가중치 시각화<br>
+                                    • SHAP/LIME 기반 피처 중요도 분석<br>
+                                    • 대화형 설명 인터페이스 구현
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">플랫폼 구축</span></td>
+                                <td>
+                                    • AWS/Azure 기반 실시간 처리 인프라<br>
+                                    • RESTful API 서비스 아키텍처<br>
+                                    • 개인정보보호 및 보안 체계 강화
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="metrics">
+                        <h4>📊 정량적 성과 목표</h4>
+                        <div class="metric-item">
+                            <span>정서 분류 정확도</span>
+                            <span class="metric-value">≥ 85%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>개인화 적응률</span>
+                            <span class="metric-value">≥ 70%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>학술 성과</span>
+                            <span class="metric-value">SCI(E) 논문 1-2편, 국제학회 2건</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>지식재산</span>
+                            <span class="metric-value">특허출원 1건, SW 저작권 2건</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-section year3">
+                <div class="year-header">
+                    <span class="year-icon">🎯</span>
+                    <div>
+                        <div>2단계 | 3차년도 (12개월)</div>
+                        <div style="font-size: 0.8em; opacity: 0.9;">2027.1 ~ 2027.12</div>
+                    </div>
+                </div>
+                <div class="year-content">
+                    <table class="research-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">연구 영역</th>
+                                <th>세부 연구 내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="category">AGI 아키텍처</span></td>
+                                <td>
+                                    • 상태 추론 엔진: 실시간 정서·인지 상태 통합 분석<br>
+                                    • 의사결정 엔진: 상황별 최적 대응 전략 생성<br>
+                                    • 행동/대화 응답 모듈: LLM 연동 자연어 대화
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">행동 예측 모델</span></td>
+                                <td>
+                                    • <span class="highlight">핵심 도전 과제</span><br>
+                                    • 행동 분류: 회피/공격/협동/의욕/위축/도전 6개 카테고리<br>
+                                    • CNN-LSTM-Transformer 하이브리드 구조<br>
+                                    • 시나리오별 검증 (학습/스트레스/의사결정 상황)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">실시간 최적화</span></td>
+                                <td>
+                                    • NVIDIA Jetson 기반 엣지 컴퓨팅<br>
+                                    • 모델 경량화: 양자화, 프루닝 기법<br>
+                                    • 스트리밍 파이프라인 및 점진적 학습
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">특화 모듈</span></td>
+                                <td>
+                                    • 교육: 학습 집중도 모니터링 + 적응형 코칭<br>
+                                    • 상담: 정서 상태 추적 + 공감적 대화<br>
+                                    • 의사결정: VIP 스트레스 관리 + 판단 지원
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="metrics">
+                        <h4>📊 정량적 성과 목표</h4>
+                        <div class="metric-item">
+                            <span>행동 예측 정확도</span>
+                            <span class="metric-value">≥ 80%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>실시간 응답</span>
+                            <span class="metric-value">≤ 3초</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>통합 만족도</span>
+                            <span class="metric-value">≥ 80%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>학술 성과</span>
+                            <span class="metric-value">SCI(E) 논문 2편, 최우수 논문상 도전</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>지식재산</span>
+                            <span class="metric-value">특허출원 2건, 기술이전 검토</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="year-section year4">
+                <div class="year-header">
+                    <span class="year-icon">🏆</span>
+                    <div>
+                        <div>2단계 | 4차년도 (12개월)</div>
+                        <div style="font-size: 0.8em; opacity: 0.9;">2028.1 ~ 2028.12</div>
+                    </div>
+                </div>
+                <div class="year-content">
+                    <table class="research-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">연구 영역</th>
+                                <th>세부 연구 내용</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="category">실용화 서비스</span></td>
+                                <td>
+                                    • AI 심리케어: 병원 연계 정서 모니터링 + 개인맞춤 피드백<br>
+                                    • AI 학습 튜터: 교육기관 연계 집중도 분석 + 적응형 코칭<br>
+                                    • VIP 의사결정 지원: 경영진 스트레스 관리 + 판단 지원
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">현장 실증</span></td>
+                                <td>
+                                    • 의료기관 3곳 이상: 정신건강 모니터링 임상 검증<br>
+                                    • 교육기관 5곳 이상: 학습 효과 개선 측정<br>
+                                    • 기업 파일럿: CEO/임원 의사결정 지원 효과 분석
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">시스템 완성</span></td>
+                                <td>
+                                    • 동시 사용자 1000명 지원 인프라<br>
+                                    • 의료용 등급 개인정보보호 체계<br>
+                                    • 개방형 API 표준화 완성
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="category">사업화 준비</span></td>
+                                <td>
+                                    • 기술패키지 완성: 알고리즘 + 도구 + 매뉴얼<br>
+                                    • 파트너사 협력: 의료기기/교육/웰니스 업체 기술이전<br>
+                                    • 창업/M&A 추진
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="metrics">
+                        <h4>📊 정량적 성과 목표</h4>
+                        <div class="metric-item">
+                            <span>종합 시스템 만족도</span>
+                            <span class="metric-value">≥ 85%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>실시간 처리 성능</span>
+                            <span class="metric-value">≤ 3초</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>행동 예측 정확도</span>
+                            <span class="metric-value">≥ 80%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>설명가능성 만족도</span>
+                            <span class="metric-value">≥ 85%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>학술 성과</span>
+                            <span class="metric-value">SCI(E) 논문 2편, 국제 특허 1건</span>
+                        </div>
+                        <div class="metric-item">
+                            <span>사업화 성과</span>
+                            <span class="metric-value">기술이전 1건+, 매출 발생/투자 유치</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>🚀 기대효과 및 파급력</h3>
+            <p><strong>기술적:</strong> 멀티모달 생체신호 기반 AGI 원천기술 확보 | <strong>산업적:</strong> 정서 인식 AGI 시장 창출 (2030년 10조원 규모)</p>
+            <p><strong>사회적:</strong> 정신건강 증진, 교육 격차 해소, 고령화 대응 서비스 혁신</p>
+            <button class="download-btn" onclick="window.print()">📄 인쇄하기</button>
+            <button class="download-btn" onclick="copyLink()">🔗 링크 복사</button>
+        </div>
+    </div>
+    
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                alert('링크가 클립보드에 복사되었습니다!');
