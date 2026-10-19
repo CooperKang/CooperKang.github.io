@@ -6,6 +6,7 @@ JaeHa Kang이 만든 서비스를 모아 둔 허브입니다. <https://cooperkan
 |---|---|
 | `/` | 서비스 허브 (`index.html`) |
 | `/family-tree/` | [우리 호칭](https://github.com/CooperKang/family-tree): 양가 가계도와 호칭 안내 |
+| `/squash/` | [스쿼시 코트](https://github.com/CooperKang/squash): 스쿼시 규칙·장비, 라켓 추천, 대회 현황판, 미니 게임 |
 
 ## 새 서비스 추가하기
 
