@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JaeHa Kang 서비스</title>
-    <meta name="description" content="JaeHa Kang이 직접 만들어 운영하는 서비스 모음" />
+    <meta name="description" content="JaeHa Kang이 살면서 필요해서 직접 만든 서비스 모음" />
     <meta property="og:title" content="JaeHa Kang 서비스" />
-    <meta property="og:description" content="직접 만들어 운영하는 서비스 모음" />
+    <meta property="og:description" content="살면서 필요해서 직접 만든 서비스 모음" />
     <meta property="og:url" content="https://cooperkang.github.io/" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%231a1d24%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22%3EJK%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,33 +15,42 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
     <style>
       :root {
-        --bg: #f5f6f8;
-        --surface: #ffffff;
-        --ink: #1a1d24;
-        --muted: #646b78;
-        --line: #dfe2e8;
+        --bg: #f6f7f8;
+        --ink: #17191e;
+        --muted: #686e79;
+        --faint: #a3a8b0;
+        --rule: #dcdfe4;
+        --tint: var(--bg);
         color-scheme: light;
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --bg: #13151a;
-          --surface: #1c1f26;
-          --ink: #eceef2;
-          --muted: #9aa1ad;
-          --line: #2c303a;
+          --bg: #131518;
+          --ink: #e9ebee;
+          --muted: #9ba1ab;
+          --faint: #5d636c;
+          --rule: #2a2e35;
           color-scheme: dark;
+        }
+        .row {
+          --ui: color-mix(in srgb, var(--accent) 62%, white);
         }
       }
       * {
         box-sizing: border-box;
       }
+      html {
+        background: var(--bg);
+      }
       body {
         margin: 0;
-        background: var(--bg);
+        min-height: 100vh;
+        background: var(--tint);
         color: var(--ink);
         font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
         word-break: keep-all;
+        transition: background-color 0.5s ease;
       }
       a {
         color: inherit;
@@ -51,139 +60,189 @@
         outline-offset: 4px;
       }
       .wrap {
-        max-width: 1040px;
+        max-width: 1120px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 24px;
       }
+
+      /* 머리말: 조용하게 */
       header {
-        padding: 72px 0 40px;
+        padding: 64px 0 56px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: end;
       }
       header h1 {
         margin: 0;
-        font-size: clamp(36px, 7vw, 64px);
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        font-weight: 800;
+        font-size: 17px;
+        font-weight: 700;
       }
       header p {
-        margin: 16px 0 0;
-        max-width: 34em;
-        font-size: 18px;
-        line-height: 1.6;
+        margin: 10px 0 0;
+        max-width: 38em;
+        font-size: 17px;
+        line-height: 1.65;
         color: var(--muted);
       }
-      .count {
-        margin: 0 0 14px;
-        font-size: 14px;
-        font-weight: 600;
+      header nav a {
+        font-size: 15px;
         color: var(--muted);
+        text-underline-offset: 4px;
       }
-      ul.services {
+      header nav a:hover {
+        color: var(--ink);
+      }
+
+      /* 목록 */
+      ol.index {
         list-style: none;
         margin: 0;
         padding: 0;
-        display: grid;
-        gap: 20px;
+        border-top: 1px solid var(--rule);
       }
-      .service {
+      .row {
+        --ui: var(--accent);
+        border-bottom: 1px solid var(--rule);
+        transition: opacity 0.3s ease;
+      }
+      .index.has-active .row:not(.active) {
+        opacity: 0.28;
+      }
+      .row > a {
         display: grid;
-        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-        align-items: stretch;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        gap: 12px 48px;
+        align-items: center;
+        padding: 40px 0 38px;
         text-decoration: none;
-        background: var(--surface);
-        border-radius: 28px;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        transition:
-          transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
-          box-shadow 0.25s;
       }
-      .service:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 24px 50px -28px rgb(0 0 0 / 0.35);
-      }
-      .service:active {
-        transform: translateY(-1px) scale(0.995);
-      }
-      .info {
-        padding: 32px;
-        display: flex;
-        flex-direction: column;
+      .row > a:focus-visible {
+        outline-offset: -2px;
       }
       .name {
         margin: 0;
-        font-size: 40px;
-        line-height: 1.15;
-        color: var(--accent);
+        font-size: clamp(40px, 7.2vw, 84px);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--ui);
+        overflow: hidden;
+        padding-bottom: 0.08em;
       }
-      .tagline {
-        margin: 12px 0 0;
-        font-size: 17px;
-        line-height: 1.6;
-        color: var(--muted);
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin: 20px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-      .tags li {
-        font-size: 13px;
-        font-weight: 600;
-        padding: 5px 10px;
-        border-radius: 999px;
-        background: var(--bg);
-        color: var(--muted);
-      }
-      .open {
-        margin-top: auto;
-        padding-top: 28px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-weight: 700;
-        font-size: 16px;
-      }
-      .open span {
+      .name span {
         display: inline-block;
-        padding: 12px 18px;
-        border-radius: 14px;
-        background: var(--ink);
-        color: var(--surface);
       }
-      .open small {
-        font-size: 13px;
-        font-weight: 500;
+      .name[data-font='wide'] {
+        font-size: clamp(30px, 5.2vw, 60px);
+        letter-spacing: 0;
+      }
+      .about {
+        font-size: 16px;
+        line-height: 1.7;
         color: var(--muted);
       }
-      .shot {
-        position: relative;
-        background: var(--accent-soft);
-        min-height: 260px;
+      .about p {
+        margin: 0;
+        max-width: 34em;
       }
-      .shot img {
-        position: absolute;
-        inset: 28px 0 0 28px;
-        width: calc(100% - 28px);
-        height: calc(100% - 28px);
-        object-fit: cover;
-        object-position: right top;
-        border-top-left-radius: 14px;
-        box-shadow: 0 10px 30px -12px rgb(0 0 0 / 0.3);
-      }
-      .next {
-        margin-top: 20px;
-        padding: 22px 28px;
-        border: 2px dashed var(--line);
-        border-radius: 28px;
-        color: var(--muted);
+      .taste {
+        margin-top: 14px;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        min-height: 1.6em;
         font-size: 15px;
+        color: var(--ink);
       }
+      .taste b {
+        flex: none;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 6px;
+        color: var(--ui);
+        background: color-mix(in srgb, var(--ui) 14%, transparent);
+      }
+      .taste span {
+        display: inline-block;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+      }
+      .taste span.out {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      .go {
+        margin-top: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--faint);
+        transition: color 0.2s;
+      }
+      .row.active .go {
+        color: var(--ui);
+      }
+      .shot-inline {
+        display: none;
+      }
+
+      /* 커서를 따라오는 미리보기 */
+      .preview {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 380px;
+        aspect-ratio: 14 / 9;
+        pointer-events: none;
+        z-index: 10;
+        border-radius: 10px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translate3d(-9999px, 0, 0);
+        transition: opacity 0.25s ease;
+        box-shadow: 0 24px 60px -24px rgb(20 24 30 / 0.45);
+        will-change: transform;
+      }
+      .preview.on {
+        opacity: 1;
+      }
+      .preview img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left top;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .preview img.show {
+        opacity: 1;
+      }
+
+      .next {
+        padding: 28px 0;
+        font-size: 15px;
+        color: var(--muted);
+      }
+      .next i {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        margin-left: 3px;
+        vertical-align: -2px;
+        background: var(--muted);
+        animation: blink 1.1s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
       footer {
-        padding: 56px 0 48px;
+        padding: 72px 0 48px;
         display: flex;
         flex-wrap: wrap;
         gap: 8px 24px;
@@ -193,32 +252,65 @@
       footer a {
         text-underline-offset: 3px;
       }
-      @media (max-width: 720px) {
-        header {
-          padding: 48px 0 28px;
+
+      /* 첫 화면에서 한 번만: 이름이 아래에서 올라온다 */
+      .ready .name span {
+        animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        animation-delay: calc(var(--i) * 110ms + 80ms);
+      }
+      @keyframes rise {
+        from {
+          transform: translateY(105%);
         }
-        .service {
+      }
+
+      /* 마우스가 없는 기기: 미리보기를 각 줄 안에 */
+      @media (hover: none), (max-width: 760px) {
+        .preview {
+          display: none;
+        }
+        .index.has-active .row:not(.active) {
+          opacity: 1;
+        }
+        .row > a {
           grid-template-columns: 1fr;
+          padding: 32px 0 30px;
         }
-        .info {
-          padding: 24px;
+        .shot-inline {
+          display: block;
+          margin-top: 18px;
+          aspect-ratio: 16 / 9;
+          border-radius: 10px;
+          overflow: hidden;
+          background: color-mix(in srgb, var(--accent) 10%, var(--bg));
         }
-        .name {
-          font-size: 32px;
+        .shot-inline img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: left top;
+          display: block;
         }
-        .shot {
-          min-height: 220px;
-          order: -1;
+      }
+      @media (max-width: 760px) {
+        header {
+          grid-template-columns: 1fr;
+          padding: 44px 0 36px;
         }
-        .shot img {
-          inset: 20px 0 0 20px;
-          width: calc(100% - 20px);
-          height: calc(100% - 20px);
+        .wrap {
+          padding: 0 16px;
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .service {
+        body,
+        .row,
+        .taste span,
+        .preview {
           transition: none;
+        }
+        .ready .name span,
+        .next i {
+          animation: none;
         }
       }
     </style>
@@ -226,14 +318,16 @@
   <body>
     <div class="wrap">
       <header>
-        <h1>JaeHa Kang 서비스</h1>
-        <p>생활하다 필요해진 것들을 직접 만들어 운영해요. 원하는 서비스를 눌러 바로 써 보세요.</p>
+        <div>
+          <h1>JaeHa Kang</h1>
+          <p>살면서 필요해진 도구를 직접 만들어 공개해요. 로그인 없이 바로 써 볼 수 있어요.</p>
+        </div>
+        <nav aria-label="바깥 링크"><a href="https://github.com/CooperKang">GitHub</a></nav>
       </header>
 
       <main>
-        <p class="count" id="count"></p>
-        <ul class="services" id="services"></ul>
-        <p class="next">다음 서비스를 만들고 있어요. 새 서비스가 나오면 여기에 추가돼요.</p>
+        <ol class="index" id="index" aria-label="서비스 목록"></ol>
+        <p class="next">다음 것을 만드는 중<i aria-hidden="true"></i></p>
       </main>
 
       <footer>
@@ -242,94 +336,271 @@
       </footer>
     </div>
 
+    <div class="preview" id="preview" aria-hidden="true"></div>
+
     <script>
       // 새 서비스는 이 목록에 추가한다. url은 같은 사이트 경로(/저장소이름/)나 전체 주소 모두 된다.
+      // samples는 줄에 마우스를 올리면(폰에서는 화면에 보이면) 차례로 바뀌는 한 줄 맛보기다.
       const SERVICES = [
         {
           name: '우리 호칭',
           url: '/family-tree/',
           tagline: '양가 가족을 등록하면 한 장의 가계도로 이어 주고, 누구 입장에서든 모두를 뭐라고 부르는지 알려줘요.',
-          tags: ['결혼', '가족 호칭', '로그인 없음'],
           image: 'images/services/family-tree.png',
           imageAlt: '우리 호칭 가계도에서 아내의 여동생을 눌러 처제라고 나온 화면',
           source: 'https://github.com/CooperKang/family-tree',
           font: "'Gowun Batang', serif",
           accent: '#c0394b',
-          accentSoft: '#e3e9f6',
+          sampleLabel: '예를 들면',
+          samples: ['아내의 여동생은 처제', '남편의 형은 아주버님', '남편의 여동생은 아가씨', '엄마의 남동생은 외삼촌', '아내의 남동생은 처남'],
         },
         {
           name: '스쿼시 코트',
           url: '/squash/',
           tagline: '스쿼시 규칙과 장비를 익히고, 내 스타일에 맞는 라켓을 찾고, 국내외 대회 현황을 보고, 터치로 치는 미니 게임까지.',
-          tags: ['스쿼시 입문', '라켓 추천', '대회 현황판', '미니 게임'],
           image: 'images/services/squash.png',
           imageAlt: '스쿼시 코트 첫 화면: 실버와 청록색 라켓 그림과 메뉴 카드',
           source: 'https://github.com/CooperKang/squash',
           font: "'Michroma', sans-serif",
+          fontKind: 'wide',
           accent: '#00707d',
-          accentSoft: '#d4ebed',
+          sampleLabel: '지금',
+          samples: ['라켓 58종 중에서 내 스타일에 맞는 것 찾기', '날아오는 공을 눌러 치는 미니 게임'],
+          // 스쿼시 현황판이 모아 둔 PSA 일정에서 다음 큰 대회를 가져온다
+          live: async () => {
+            const res = await fetch('/squash/data/calendar.json', { cache: 'no-store' })
+            const { events } = await res.json()
+            const today = new Date().toISOString().slice(0, 10)
+            const next = events.find((e) => e.group === 'world' && e.end >= today)
+            if (!next) return null
+            const days = Math.round((Date.parse(next.start) - Date.parse(today)) / 864e5)
+            const name = next.name.replace(/\s+(presented|powered) by .*/i, '')
+            return days <= 0 ? `${name} 진행 중` : `다음 PSA 대회 ${name}, D-${days}`
+          },
         },
         {
           name: '첫 집 계산기',
           url: '/first-home/',
-          tagline: '내 소득과 모은 돈으로 얼마짜리 집까지 될까? LTV·스트레스 DSR·장래소득·정책 대출부터 취득세와 중도금 이자까지, 첫 집이라 놓치기 쉬운 것을 통장처럼 정리해 줘요.',
-          tags: ['사회초년생', '생애최초', '신혼부부', '대출 한도', '미래 계산기'],
+          tagline: '내 소득과 모은 돈으로 얼마짜리 집까지 될까? 대출 규제와 정책 대출부터 취득세와 중도금 이자까지, 통장처럼 정리해 줘요.',
           image: 'images/services/first-home.png',
           imageAlt: '첫 집 계산기 첫 화면: 초록 통장 표지 아래 살 수 있는 집값과 계산 완료 도장',
           source: 'https://github.com/CooperKang/first-home',
           font: "'Hahmlet', serif",
           accent: '#1f6f5c',
-          accentSoft: '#dcebe5',
+          sampleLabel: '놓치기 쉬운 것',
+          samples: [
+            '계약금은 대출이 안 돼요. 집값의 10%는 먼저 현금으로',
+            '신용대출 1천만원이 주담대 한도를 수천만원 깎을 수 있어요',
+            '취득세·중개보수·법무사비로 집값의 2~4%가 더 들어요',
+            '만 34세까지는 장래소득을 인정받으면 한도가 늘어요',
+          ],
         },
       ]
 
-      const list = document.getElementById('services')
-      document.getElementById('count').textContent = `서비스 ${SERVICES.length}개`
-      for (const s of SERVICES) {
-        const li = document.createElement('li')
-        const a = document.createElement('a')
-        a.className = 'service'
-        a.href = s.url
-        a.style.setProperty('--accent', s.accent)
-        a.style.setProperty('--accent-soft', s.accentSoft)
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+      const canHover = matchMedia('(hover: hover) and (min-width: 761px)').matches
+      const list = document.getElementById('index')
+      const preview = document.getElementById('preview')
+      const rows = []
 
-        const info = document.createElement('div')
-        info.className = 'info'
+      SERVICES.forEach((s, i) => {
+        const li = document.createElement('li')
+        li.className = 'row'
+        li.style.setProperty('--accent', s.accent)
+
+        const a = document.createElement('a')
+        a.href = s.url
+
         const h = document.createElement('h2')
         h.className = 'name'
         h.style.fontFamily = s.font
-        h.textContent = s.name
-        const p = document.createElement('p')
-        p.className = 'tagline'
-        p.textContent = s.tagline
-        const tags = document.createElement('ul')
-        tags.className = 'tags'
-        tags.setAttribute('aria-label', '특징')
-        for (const t of s.tags) {
-          const tag = document.createElement('li')
-          tag.textContent = t
-          tags.append(tag)
-        }
-        const open = document.createElement('p')
-        open.className = 'open'
-        const btn = document.createElement('span')
-        btn.textContent = `${s.name} 열기`
-        const host = document.createElement('small')
-        host.textContent = new URL(s.url, location.href).host + new URL(s.url, location.href).pathname
-        open.append(btn, host)
-        info.append(h, p, tags, open)
+        if (s.fontKind) h.dataset.font = s.fontKind
+        const word = document.createElement('span')
+        word.textContent = s.name
+        word.style.setProperty('--i', i)
+        h.append(word)
 
-        const shot = document.createElement('div')
-        shot.className = 'shot'
+        const about = document.createElement('div')
+        about.className = 'about'
+        const p = document.createElement('p')
+        p.textContent = s.tagline
+        const taste = document.createElement('p')
+        taste.className = 'taste'
+        const label = document.createElement('b')
+        label.textContent = s.sampleLabel
+        const line = document.createElement('span')
+        line.textContent = s.samples[0]
+        taste.append(label, line)
+        const go = document.createElement('p')
+        go.className = 'go'
+        go.textContent = `${s.name} 열기`
+        about.append(p, taste, go)
+
+        const inline = document.createElement('div')
+        inline.className = 'shot-inline'
         const img = document.createElement('img')
         img.src = s.image
         img.alt = s.imageAlt
         img.loading = 'lazy'
-        shot.append(img)
+        inline.append(img)
 
-        a.append(info, shot)
+        a.append(h, about, inline)
         li.append(a)
         list.append(li)
+
+        const pimg = document.createElement('img')
+        pimg.src = s.image
+        pimg.alt = ''
+        preview.append(pimg)
+
+        rows.push({ s, li, line, pimg, samples: [...s.samples], k: 0, timer: 0 })
+      })
+
+      // 첫 화면에서 이름이 올라오는 동작은 한 번만
+      if (!reduce) requestAnimationFrame(() => document.body.classList.add('ready'))
+
+      // 실시간 맛보기(있으면 맨 앞에 넣는다)
+      for (const r of rows) {
+        if (!r.s.live) continue
+        r.s
+          .live()
+          .then((text) => {
+            if (!text) return
+            r.samples.unshift(text)
+            r.k = 0
+            r.line.textContent = text
+          })
+          .catch(() => {})
+      }
+
+      // 한 줄 맛보기를 차례로 바꾼다
+      function cycle(r) {
+        if (r.samples.length < 2) return
+        r.line.classList.add('out')
+        setTimeout(() => {
+          r.k = (r.k + 1) % r.samples.length
+          r.line.textContent = r.samples[r.k]
+          r.line.classList.remove('out')
+        }, reduce ? 0 : 250)
+      }
+      function startCycle(r) {
+        if (r.timer) return
+        r.timer = setInterval(() => cycle(r), 2400)
+      }
+      function stopCycle(r) {
+        clearInterval(r.timer)
+        r.timer = 0
+      }
+
+      // ---------- 마우스가 있는 화면 ----------
+      let active = null
+      const pos = { x: innerWidth / 2, y: innerHeight / 2 }
+      const cur = { x: pos.x, y: pos.y, tilt: 0 }
+      let raf = 0
+
+      function activate(r) {
+        if (active === r) return
+        if (active) {
+          active.li.classList.remove('active')
+          stopCycle(active)
+        }
+        active = r
+        list.classList.toggle('has-active', Boolean(r))
+        if (!r) {
+          document.body.style.setProperty('--tint', 'var(--bg)')
+          preview.classList.remove('on')
+          return
+        }
+        r.li.classList.add('active')
+        document.body.style.setProperty('--tint', `color-mix(in srgb, ${r.s.accent} 7%, var(--bg))`)
+        for (const x of rows) x.pimg.classList.toggle('show', x === r)
+        if (canHover) preview.classList.add('on')
+        cycle(r)
+        startCycle(r)
+      }
+
+      function follow() {
+        if (!active) {
+          raf = 0
+          return
+        }
+        // 살짝 늦게 따라오고, 움직이는 방향으로 조금 기운다
+        const k = reduce ? 1 : 0.16
+        const { tx, ty } = target()
+        const dx = tx - cur.x
+        cur.x += dx * k
+        cur.y += (ty - cur.y) * k
+        cur.tilt += (Math.max(-5, Math.min(5, dx * 0.05)) - cur.tilt) * 0.12
+        preview.style.transform = `translate3d(${cur.x}px, ${cur.y}px, 0) rotate(${reduce ? 0 : cur.tilt}deg)`
+        raf = active ? requestAnimationFrame(follow) : 0
+      }
+
+      // 미리보기 자리: 가로는 커서를 따라가고, 세로는 지금 줄의 글을 가리지 않게
+      // 줄 아래(흐려진 다음 줄 위)에 두되 화면에 안 들어가면 줄 위에 둔다
+      function target() {
+        const w = preview.offsetWidth
+        const h = preview.offsetHeight
+        const box = active.li.getBoundingClientRect()
+        const fitsBelow = box.bottom + 14 + h <= innerHeight - 12
+        const ty = Math.max(12, Math.min(innerHeight - h - 12, fitsBelow ? box.bottom + 14 : box.top - h - 14))
+        const tx = Math.max(16, Math.min(innerWidth - w - 16, pos.x - w / 2))
+        return { tx, ty }
+      }
+
+      // 처음 나타날 때는 목표 자리에서 바로 시작(화면을 가로질러 날아오지 않게)
+      function snap() {
+        if (!active) return
+        const { tx, ty } = target()
+        cur.x = tx
+        cur.y = ty
+        cur.tilt = 0
+      }
+
+      if (canHover) {
+        for (const r of rows) {
+          r.li.addEventListener('pointerenter', (e) => {
+            pos.x = e.clientX
+            pos.y = e.clientY
+            const first = !active
+            activate(r)
+            if (first) snap()
+            if (!raf) raf = requestAnimationFrame(follow)
+          })
+          r.li.addEventListener('pointermove', (e) => {
+            pos.x = e.clientX
+            pos.y = e.clientY
+          })
+        }
+        list.addEventListener('pointerleave', () => activate(null))
+      }
+
+      // 키보드로 줄을 옮길 때도 같은 상태를 보여 주되, 미리보기는 줄 오른쪽에 고정
+      for (const r of rows) {
+        r.li.addEventListener('focusin', () => {
+          const box = r.li.getBoundingClientRect()
+          pos.x = box.left + box.width * 0.75
+          activate(r)
+          snap()
+          if (canHover && !raf) raf = requestAnimationFrame(follow)
+        })
+        r.li.addEventListener('focusout', (e) => {
+          if (!list.contains(e.relatedTarget)) activate(null)
+        })
+      }
+
+      // ---------- 마우스가 없는 화면: 화면 가운데 들어온 줄의 맛보기를 돌린다 ----------
+      if (!canHover && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              const r = rows.find((x) => x.li === e.target)
+              if (e.isIntersecting) startCycle(r)
+              else stopCycle(r)
+            }
+          },
+          { rootMargin: '-30% 0px -30% 0px' },
+        )
+        for (const r of rows) io.observe(r.li)
       }
     </script>
   </body>
