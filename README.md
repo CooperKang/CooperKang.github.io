@@ -6,7 +6,6 @@ JaeHa Kang이 만든 서비스를 모아 둔 허브입니다. <https://cooperkan
 |---|---|
 | `/` | 서비스 허브 (`index.html`) |
 | `/family-tree/` | [우리 호칭](https://github.com/CooperKang/family-tree): 양가 가계도와 호칭 안내 |
-| `/portfolio.html` | 포트폴리오 |
 
 ## 새 서비스 추가하기
 
