@@ -1,0 +1,5 @@
+# 모든 검색엔진과 AI 크롤러에 공개
+User-agent: *
+Allow: /
+
+Sitemap: https://cooperkang.github.io/squash/sitemap.xml

@@ -1,0 +1,8 @@
+# JaeHa Kang 서비스
+
+> 살면서 필요해서 직접 만든 한국어 웹 서비스 모음입니다.
+
+## 서비스
+- [우리 호칭](https://cooperkang.github.io/family-tree/): 양가 가족을 등록하면 한 장의 가계도로 이어 주고, 누구 입장에서든 모두를 뭐라고 부르는지 알려줘요.
+- [스쿼시 코트](https://cooperkang.github.io/squash/): 스쿼시 규칙, 기술 용어, 혼자 하는 연습법과 스트레칭, 라켓 추천, 전국 스쿼시장 찾기, 대회 현황. 자세한 목차는 https://cooperkang.github.io/squash/llms.txt
+- [첫 집 계산기](https://cooperkang.github.io/first-home/): 내 소득과 모은 돈으로 얼마짜리 집까지 될까? 대출 규제와 정책 대출부터 취득세와 중도금 이자까지 정리해 줘요.
