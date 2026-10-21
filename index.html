@@ -508,20 +508,33 @@
           .catch(() => {})
       }
 
-      // 방문 수: GoatCounter 공개 카운터(서비스를 연 횟수, 서비스 안 화면 이동은 세지 않음).
+      // 방문 수: GitHub Actions가 1시간마다 GoatCounter API에서 받아 둔 data/visits.json(서비스를 연 방문자 수,
+      // 같은 사람이 8시간 안에 다시 열면 한 번). 파일이 없으면 공개 카운터(최대 4시간 캐시)로 대신한다.
       // 다른 사이트 주소(http로 시작)는 세지 않는다. 읽지 못하면 숫자만 숨긴다.
-      const GC = 'https://jaehakang.goatcounter.com/counter/'
       const fmt = (n) => n.toLocaleString('ko-KR')
-      async function visits(path) {
-        const res = await fetch(`${GC}${encodeURIComponent(path)}.json`)
-        if (res.status === 404) return 0 // 아직 한 번도 안 열린 곳
+      const local = rows.filter((r) => r.s.url.startsWith('/'))
+      async function fromFile() {
+        const res = await fetch(`data/visits.json?t=${Date.now()}`, { cache: 'no-store' })
         if (!res.ok) throw new Error(res.status)
-        return Number(String((await res.json()).count).replace(/\D/g, '')) || 0
+        const { paths, at } = await res.json()
+        return { counts: local.map((r) => paths[r.s.url] ?? 0), at }
       }
-      Promise.all(rows.filter((r) => r.s.url.startsWith('/')).map((r) => visits(r.s.url).then((n) => ((r.uses.textContent = ` · ${fmt(n)}회 방문`), n))))
-        .then((ns) => {
+      async function fromCounter() {
+        const one = async (path) => {
+          const res = await fetch(`https://jaehakang.goatcounter.com/counter/${encodeURIComponent(path)}.json`)
+          if (res.status === 404) return 0 // 아직 한 번도 안 열린 곳
+          if (!res.ok) throw new Error(res.status)
+          return Number(String((await res.json()).count).replace(/\D/g, '')) || 0
+        }
+        return { counts: await Promise.all(local.map((r) => one(r.s.url))), at: null }
+      }
+      fromFile()
+        .catch(fromCounter)
+        .then(({ counts, at }) => {
+          local.forEach((r, i) => (r.uses.textContent = ` · ${fmt(counts[i])}회 방문`))
+          const when = at ? '1시간마다 갱신돼요' : '몇 시간마다 갱신돼요'
           const usage = document.getElementById('usage')
-          usage.innerHTML = `지금까지 서비스 ${ns.length}개가 모두 <b>${fmt(ns.reduce((a, b) => a + b, 0))}번</b> 열렸어요. <span style="color: var(--faint); font-size: 13px">몇 시간마다 갱신돼요</span>`
+          usage.innerHTML = `지금까지 서비스 ${counts.length}개가 모두 <b>${fmt(counts.reduce((a, b) => a + b, 0))}번</b> 열렸어요. <span style="color: var(--faint); font-size: 13px">${when}</span>`
           usage.hidden = false
         })
         .catch(() => rows.forEach((r) => (r.uses.textContent = '')))
