@@ -181,6 +181,18 @@
         color: var(--faint);
         transition: color 0.2s;
       }
+      .go .uses {
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+      }
+      header .usage {
+        margin-top: 14px;
+        font-size: 15px;
+        color: var(--ink);
+      }
+      header .usage b {
+        font-variant-numeric: tabular-nums;
+      }
       .row.active .go {
         color: var(--ui);
       }
@@ -315,6 +327,7 @@
         }
       }
     </style>
+    <script data-goatcounter="https://jaehakang.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </head>
   <body>
     <div class="wrap">
@@ -322,6 +335,7 @@
         <div>
           <h1>JaeHa Kang</h1>
           <p>살면서 필요해진 도구를 직접 만들어 공개해요. 로그인 없이 바로 써 볼 수 있어요.</p>
+          <p class="usage" id="usage" hidden></p>
         </div>
         <nav aria-label="바깥 링크"><a href="https://github.com/CooperKang">GitHub</a></nav>
       </header>
@@ -452,6 +466,9 @@
         const go = document.createElement('p')
         go.className = 'go'
         go.textContent = `${s.name} 열기`
+        const uses = document.createElement('span')
+        uses.className = 'uses'
+        go.append(uses)
         about.append(p, taste, go)
 
         const inline = document.createElement('div')
@@ -471,7 +488,7 @@
         pimg.alt = ''
         preview.append(pimg)
 
-        rows.push({ s, li, line, pimg, samples: [...s.samples], k: 0, timer: 0 })
+        rows.push({ s, li, line, pimg, uses, samples: [...s.samples], k: 0, timer: 0 })
       })
 
       // 첫 화면에서 이름이 올라오는 동작은 한 번만
@@ -490,6 +507,24 @@
           })
           .catch(() => {})
       }
+
+      // 방문 수: GoatCounter 공개 카운터(서비스를 연 횟수, 서비스 안 화면 이동은 세지 않음).
+      // 다른 사이트 주소(http로 시작)는 세지 않는다. 읽지 못하면 숫자만 숨긴다.
+      const GC = 'https://jaehakang.goatcounter.com/counter/'
+      const fmt = (n) => n.toLocaleString('ko-KR')
+      async function visits(path) {
+        const res = await fetch(`${GC}${encodeURIComponent(path)}.json`)
+        if (res.status === 404) return 0 // 아직 한 번도 안 열린 곳
+        if (!res.ok) throw new Error(res.status)
+        return Number(String((await res.json()).count).replace(/\D/g, '')) || 0
+      }
+      Promise.all(rows.filter((r) => r.s.url.startsWith('/')).map((r) => visits(r.s.url).then((n) => ((r.uses.textContent = ` · ${fmt(n)}회 방문`), n))))
+        .then((ns) => {
+          const usage = document.getElementById('usage')
+          usage.innerHTML = `지금까지 서비스 ${ns.length}개가 모두 <b>${fmt(ns.reduce((a, b) => a + b, 0))}번</b> 열렸어요.`
+          usage.hidden = false
+        })
+        .catch(() => rows.forEach((r) => (r.uses.textContent = '')))
 
       // 한 줄 맛보기를 차례로 바꾼다
       function cycle(r) {
