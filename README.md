@@ -8,6 +8,7 @@ JaeHa Kang이 만든 서비스를 모아 둔 허브입니다. <https://cooperkan
 | `/family-tree/` | [우리 호칭](https://github.com/CooperKang/family-tree): 양가 가계도와 호칭 안내 |
 | `/squash/` | [스쿼시 코트](https://github.com/CooperKang/squash): 스쿼시 규칙·장비, 라켓 추천, 대회 현황판, 미니 게임 |
 | `/first-home/` | [첫 집 계산기](https://github.com/CooperKang/first-home): 대출 한도(LTV·스트레스 DSR·장래소득), 부대비용, 미래 저축, 전월세, 분양 자금 |
+| `/wedding/` | [우리 결혼 준비](https://github.com/CooperKang/wedding): 성향 진단, 시기별 타임라인, 예식장·스드메 고르기와 방문 동선, 신혼부부 지원 정책, 양가 예산 장부 |
 
 ## 새 서비스 추가하기
 
