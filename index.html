@@ -517,7 +517,7 @@
         const res = await fetch(`data/visits.json?t=${Date.now()}`, { cache: 'no-store' })
         if (!res.ok) throw new Error(res.status)
         const { paths, at } = await res.json()
-        return { counts: local.map((r) => paths[r.s.url] ?? 0), at }
+        return { counts: local.map((r) => paths[r.s.url.replace(/\/+$/, '') || '/'] ?? 0), at } // 파일은 끝 / 없이 적혀 있다
       }
       async function fromCounter() {
         const one = async (path) => {

@@ -18,7 +18,9 @@ if (!res.ok) throw new Error(`GoatCounter ${res.status}: ${await res.text()}`)
 const { hits } = await res.json()
 
 const paths = {}
-for (const h of hits) if (!h.event) paths[h.path] = (paths[h.path] ?? 0) + h.count
+// GoatCounter는 /wedding/과 /wedding을 같은 주소로 보고 끝 /를 뗀 이름으로 준다. 혹시 둘 다 오면 합친다.
+const key = (path) => path.replace(/\/+$/, '') || '/'
+for (const h of hits) if (!h.event) paths[key(h.path)] = (paths[key(h.path)] ?? 0) + h.count
 const sorted = Object.fromEntries(Object.entries(paths).sort(([a], [b]) => a.localeCompare(b)))
 
 let prev = {}
